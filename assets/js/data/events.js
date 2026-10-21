@@ -43,7 +43,7 @@ export const EVENTS = [
       {
         title: "AI-Powered Consumer Insight",
         text: "How brands use AI to read demand, behaviour and sentiment across African markets, and turn those signals into decisions.",
-        image: { src: "/assets/img/subthemes/01-consumer-insight.webp", alt: "Consumer insight", width: 800, height: 450 },
+        image: { src: "/assets/img/01-consumer-insight.webp", alt: "Consumer insight", width: 800, height: 450 },
       },
       {
         title: "Generative AI in Content and Creative Work",
