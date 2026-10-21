@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="/assets/css/home.css">
   <link rel="modulepreload" href="/assets/js/main.js">
   <link rel="modulepreload" href="/assets/js/data/events.js">
+  <link rel="modulepreload" href="/assets/js/data/site.js">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -31,9 +32,8 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="/" aria-label="African Brands Congress, home">
-        <!-- TODO: replace with the vector logo when supplied: <img src="/assets/img/logo.svg" alt="" width="" height=""> -->
-        <span class="brand__text" aria-hidden="true">ABC</span>
-        <span class="brand__sub">African Brands Congress</span>
+        <img src="/assets/img/logo-mark.svg" alt="" width="44" height="44">
+        <span class="brand__name">African Brands Congress</span>
       </a>
 
       <nav id="site-nav" class="nav" aria-label="Main">
@@ -49,8 +49,9 @@
       </nav>
 
       <a class="btn btn--primary btn--sm" href="/register" data-register-cta-short>Register</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
-        <span data-menu-label>Menu</span>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" data-menu-toggle>
+        <svg class="icon icon--open" aria-hidden="true"><use href="/assets/img/icons.svg#menu"/></svg>
+        <svg class="icon icon--close" aria-hidden="true"><use href="/assets/img/icons.svg#x"/></svg>
       </button>
     </div>
   </header>
@@ -61,145 +62,178 @@
     <section class="hero" data-hero data-state="upcoming" aria-labelledby="hero-title">
       <div class="container hero__grid">
         <div class="hero__text">
+          <p class="hero__badge" data-hero-badge>Next event</p>
           <p class="eyebrow" data-hero-eyebrow></p>
           <h1 id="hero-title" data-hero-title>African Brands Congress</h1>
-          <p class="hero__meta" data-hero-meta></p>
+
+          <ul class="hero__facts" data-hero-facts>
+            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#calendar"/></svg><span data-hero-date></span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#map-pin"/></svg><span data-hero-venue></span></li>
+          </ul>
+          <p class="lead" data-hero-message hidden></p>
 
           <div class="countdown" data-countdown hidden>
             <div class="countdown__tiles" data-countdown-tiles role="timer" aria-label="Time until the event">
               <div class="countdown__tile"><span class="countdown__num" data-unit="days">00</span><span class="countdown__label">Days</span></div>
-              <div class="countdown__tile"><span class="countdown__num" data-unit="hours">00</span><span class="countdown__label">Hrs</span></div>
-              <div class="countdown__tile"><span class="countdown__num" data-unit="minutes">00</span><span class="countdown__label">Min</span></div>
-              <div class="countdown__tile"><span class="countdown__num" data-unit="seconds">00</span><span class="countdown__label">Sec</span></div>
+              <div class="countdown__tile"><span class="countdown__num" data-unit="hours">00</span><span class="countdown__label">Hours</span></div>
+              <div class="countdown__tile"><span class="countdown__num" data-unit="minutes">00</span><span class="countdown__label">Minutes</span></div>
+              <div class="countdown__tile"><span class="countdown__num" data-unit="seconds">00</span><span class="countdown__label">Seconds</span></div>
             </div>
             <p class="countdown__live" data-countdown-live hidden>The Congress is happening today.</p>
           </div>
           <noscript><p class="notice">Turn on JavaScript to see the event date and countdown, or contact the team.</p></noscript>
 
           <div class="hero__actions">
-            <a class="btn btn--primary" href="/register" data-register-cta>Register to attend</a>
+            <a class="btn btn--primary" href="/register" data-register-cta><span data-register-label>Register to attend</span></a>
             <a class="btn btn--secondary" href="/exhibition" data-exhibit-cta>Exhibit or sponsor</a>
             <a class="btn btn--tertiary" href="/news-contact" data-news-cta hidden>Read the latest news</a>
           </div>
         </div>
 
-        <div class="hero__media" data-hero-media>
-          <div class="photo-placeholder" role="img" aria-label="Event photo to be announced">
-            <span>Event photo: to be announced</span>
+        <div class="photo-frame" data-hero-media>
+          <div class="photo-frame__inner" data-hero-photo>
+            <div class="ph" role="img" aria-label="Event photo: ABC main hall (to be added)">
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#image"/></svg>
+              <span aria-hidden="true">Event photo: ABC main hall</span>
+            </div>
           </div>
+          <span class="photo-frame__shape photo-frame__shape--tri" aria-hidden="true"></span>
+          <span class="photo-frame__shape photo-frame__shape--dot" aria-hidden="true"></span>
+          <span class="photo-frame__shape photo-frame__shape--quarter" aria-hidden="true"></span>
+          <p class="photo-frame__tag" data-hero-tagline>Learn // Network // Celebrate</p>
         </div>
       </div>
     </section>
 
     <!-- What is ABC? -->
-    <section class="section" aria-labelledby="about-title">
+    <section class="section section--alt has-bunting" aria-labelledby="about-title">
       <div class="container">
         <div class="section__head">
+          <span class="marker" aria-hidden="true"></span>
           <h2 id="about-title">What is ABC?</h2>
-          <p>The African Brands Congress (ABC) is an annual pan-African event, running for over a decade, that brings together brand owners, marketers, executives, regulators and investors to learn, network and celebrate African brand excellence.</p>
+          <p class="lead">The African Brands Congress is an annual pan-African event that brings together brand owners, marketers, executives, regulators and investors to learn, network and celebrate African brand excellence.</p>
+          <a class="btn btn--tertiary" href="/about"><span>Read more</span><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></a>
         </div>
         <ul class="grid grid--3">
           <li class="card" data-reveal>
-            <div class="shape shape--triangle" aria-hidden="true"></div>
+            <div class="icon-tile icon-tile--yellow"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#book-open"/></svg></div>
             <h3>Learn</h3>
-            <p>Plenaries, masterclasses and panels.</p>
+            <p>Keynotes, masterclasses and panels on how AI is reshaping brand building in Africa.</p>
           </li>
           <li class="card" data-reveal>
-            <div class="shape shape--circle" aria-hidden="true"></div>
+            <div class="icon-tile icon-tile--green"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#users"/></svg></div>
             <h3>Network</h3>
-            <p>Structured networking with brand owners, executives, regulators and investors.</p>
+            <p>Structured networking with brand owners, executives, regulators and investors from across the continent.</p>
           </li>
           <li class="card" data-reveal>
-            <div class="shape shape--arc" aria-hidden="true"></div>
+            <div class="icon-tile icon-tile--red"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#trophy"/></svg></div>
             <h3>Celebrate</h3>
-            <p>Recognition of outstanding African brands through the awards.</p>
+            <p>Recognising African brand excellence through the African Brand Leadership Merit Awards.</p>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- Sub-themes: rendered from the event data -->
-    <section class="section section--alt" aria-labelledby="subthemes-title">
+    <!-- Sub-themes: cards and thumbnails are rendered from the event data -->
+    <section class="section" aria-labelledby="subthemes-title">
       <div class="container">
         <div class="section__head">
-          <h2 id="subthemes-title">Sub-themes</h2>
+          <span class="marker" aria-hidden="true"></span>
+          <h2 id="subthemes-title" data-subthemes-title>Sub-themes</h2>
+          <p class="lead">Each track looks at a different part of how AI is changing the way brands are built and run.</p>
+          <a class="btn btn--tertiary" href="/programme">View programme</a>
         </div>
         <ol class="grid grid--3" data-subthemes></ol>
       </div>
     </section>
 
     <!-- Who attends -->
-    <section class="section" aria-labelledby="attend-title">
+    <section class="section section--alt" aria-labelledby="attend-title">
       <div class="container">
         <div class="section__head">
+          <span class="marker" aria-hidden="true"></span>
           <h2 id="attend-title">Who attends</h2>
+          <p class="lead">Decision-makers from every side of the brand ecosystem, in one room.</p>
         </div>
         <ul class="chips" data-reveal>
-          <li class="chip">CEOs and executives</li>
-          <li class="chip">Brand managers</li>
-          <li class="chip">Marketers</li>
-          <li class="chip">Business owners</li>
-          <li class="chip">Regulators and policymakers</li>
-          <li class="chip">Investors</li>
+          <li class="chip"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#briefcase"/></svg>CEOs</li>
+          <li class="chip"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#badge-check"/></svg>Brand managers</li>
+          <li class="chip"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#megaphone"/></svg>Marketers</li>
+          <li class="chip"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#palette"/></svg>Agencies</li>
+          <li class="chip"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#scale"/></svg>Regulators</li>
+          <li class="chip"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#trending-up"/></svg>Investors</li>
+          <li class="chip"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#rocket"/></svg>Entrepreneurs</li>
         </ul>
       </div>
     </section>
 
-    <!-- Exhibition and Awards teasers -->
-    <section class="section section--alt" aria-labelledby="teasers-title">
+    <!-- Get involved: Exhibition and Awards -->
+    <section class="section" aria-labelledby="involved-title">
       <div class="container">
-        <h2 id="teasers-title" class="sr-only">Exhibition and awards</h2>
+        <div class="section__head">
+          <span class="marker" aria-hidden="true"></span>
+          <h2 id="involved-title">Get involved beyond the seats</h2>
+        </div>
         <div class="grid grid--2">
-          <article class="card teaser" data-reveal>
-            <h3>Exhibition</h3>
-            <p>Showcase your brand to senior decision-makers on the exhibition floor.</p>
-            <a class="btn btn--secondary" href="/exhibition">Exhibit or sponsor</a>
+          <article class="card media-card" data-reveal>
+            <div class="media-card__media ph" role="img" aria-label="Exhibition floor photo (to be added)">
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#image"/></svg>
+              <span aria-hidden="true">Exhibition floor photo</span>
+            </div>
+            <div class="media-card__body">
+              <h3>Exhibition</h3>
+              <p>Showcase your brand to senior decision-makers.</p>
+              <a class="btn btn--secondary" href="/exhibition">Exhibit or sponsor</a>
+            </div>
           </article>
-          <article class="card teaser" data-reveal>
-            <h3>African Brand Leadership Merit Awards</h3>
-            <p>Recognising outstanding African brands across 35 categories.</p>
-            <a class="btn btn--secondary" href="/awards">Explore the awards</a>
+          <article class="card media-card" data-reveal>
+            <div class="media-card__media ph" role="img" aria-label="Awards night photo (to be added)">
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#image"/></svg>
+              <span aria-hidden="true">Awards night photo</span>
+            </div>
+            <div class="media-card__body">
+              <h3>Awards</h3>
+              <p>Recognising excellence across 35 categories.</p>
+              <a class="btn btn--secondary" href="/awards">Explore the awards</a>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Past editions: placeholders until photos and years are supplied -->
-    <section class="section" aria-labelledby="past-title">
+    <!-- Past editions: rendered from /assets/js/data/site.js -->
+    <section class="section section--alt" aria-labelledby="past-title">
       <div class="container">
         <div class="section__head">
+          <span class="marker" aria-hidden="true"></span>
           <h2 id="past-title">Past editions</h2>
-          <p class="muted">Photos from previous editions: to be announced.</p>
+          <a class="btn btn--tertiary" href="/about">Our history</a>
         </div>
-        <div class="grid grid--3">
-          <div class="photo-placeholder" role="img" aria-label="Past edition photo to be announced" data-reveal><span>To be announced</span></div>
-          <div class="photo-placeholder" role="img" aria-label="Past edition photo to be announced" data-reveal><span>To be announced</span></div>
-          <div class="photo-placeholder" role="img" aria-label="Past edition photo to be announced" data-reveal><span>To be announced</span></div>
-        </div>
+        <ul class="editions" data-editions tabindex="0" aria-label="Past edition photos"></ul>
       </div>
     </section>
 
-    <!-- Sponsors and partners: placeholders until logos are supplied -->
-    <section class="section section--alt" aria-labelledby="sponsors-title">
+    <!-- Sponsors and partners: rendered from /assets/js/data/site.js -->
+    <section class="section" aria-labelledby="sponsors-title">
       <div class="container">
         <div class="section__head">
+          <span class="marker" aria-hidden="true"></span>
           <h2 id="sponsors-title">Sponsors and partners</h2>
-          <p class="muted">To be announced.</p>
+          <a class="btn btn--tertiary" href="/exhibition">Become a sponsor</a>
         </div>
-        <div class="logo-grid" aria-hidden="true">
-          <div class="logo-box"></div>
-          <div class="logo-box"></div>
-          <div class="logo-box"></div>
-          <div class="logo-box"></div>
-        </div>
+        <ul class="logo-grid" data-sponsors></ul>
       </div>
     </section>
 
     <!-- Final call to action -->
-    <section class="cta-band" aria-labelledby="final-title">
+    <section class="cta" aria-labelledby="final-title">
       <div class="container">
         <h2 id="final-title" data-cta-title>Join us at the African Brands Congress</h2>
-        <a class="btn btn--primary" href="/register" data-register-cta>Register to attend</a>
+        <p class="lead" data-cta-text hidden></p>
+        <a class="btn btn--primary" href="/register" data-register-cta>
+          <span data-register-label>Register to attend</span>
+          <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg>
+        </a>
       </div>
     </section>
 
@@ -209,38 +243,67 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer__grid">
-        <div>
-          <p class="brand__text" style="display:inline-block;color:var(--ink)" aria-hidden="true">ABC</p>
-          <h2>African Brands Congress</h2>
-          <p>Learn // Network // Celebrate</p>
+        <div class="footer__brand">
+          <a class="brand" href="/" aria-label="African Brands Congress, home">
+            <img src="/assets/img/logo-mark.svg" alt="" width="44" height="44">
+            <span class="brand__name">African Brands Congress</span>
+          </a>
+          <p>The annual pan-African gathering for brand owners, marketers, executives, regulators and investors.</p>
+          <p class="footer__tagline">Learn // Network // Celebrate</p>
+          <a class="btn btn--primary" href="/register" data-register-cta><span data-register-label>Register to attend</span></a>
         </div>
+
         <nav class="footer__links" aria-label="Quick links">
           <h2>Quick links</h2>
           <ul>
+            <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/programme">Programmes and Speakers</a></li>
             <li><a href="/exhibition">Exhibition and Sponsors</a></li>
             <li><a href="/awards">Awards</a></li>
             <li><a href="/news-contact">News and Contact</a></li>
+            <li><a href="/register">Register</a></li>
           </ul>
         </nav>
+
         <div>
           <h2>Contact</h2>
-          <ul>
-            <li>Email: To be announced</li>
-            <li>Phone: To be announced</li>
-            <li>Address: To be announced</li>
+          <ul class="footer__contact">
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#mail"/></svg>
+              <div><span class="footer__label">Email</span><span data-site="email">Email address to be confirmed</span></div>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#phone"/></svg>
+              <div><span class="footer__label">Phone</span><span data-site="phone">Phone number to be confirmed</span></div>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#map-pin"/></svg>
+              <div><span class="footer__label">Office</span><span data-site="address">Office address to be confirmed</span></div>
+            </li>
           </ul>
         </div>
+
         <div>
-          <h2>Follow us</h2>
-          <p>Social links: To be announced</p>
-          <p style="margin-top:var(--s-2)"><a class="btn btn--primary" href="/register" data-register-cta>Register to attend</a></p>
+          <div data-social-group hidden>
+            <h2>Follow ABC</h2>
+            <div class="social-list">
+              <a class="social" href="#" data-social="linkedin" aria-label="ABC on LinkedIn" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#linkedin"/></svg></a>
+              <a class="social" href="#" data-social="twitter" aria-label="ABC on Twitter" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#twitter"/></svg></a>
+              <a class="social" href="#" data-social="instagram" aria-label="ABC on Instagram" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#instagram"/></svg></a>
+            </div>
+          </div>
+          <div data-footer-event style="margin-top:var(--s-6)">
+            <h2>Next event</h2>
+            <p data-footer-date></p>
+            <p data-footer-place></p>
+          </div>
         </div>
       </div>
+
       <div class="footer__bottom">
-        <p>Privacy notice: to be announced.</p>
-        <p>&copy; <span data-year>2026</span> African Brands Congress. Website by Snazzy Digital Techspace.</p>
+        <p>Privacy notice: we use the details you share only to manage registrations, enquiries and Congress updates. <span data-site="privacy">Full privacy policy to be announced.</span></p>
+        <p>&copy; <span data-year>2026</span> African Brands Congress</p>
       </div>
     </div>
   </footer>
