@@ -1,0 +1,130 @@
+/* Exhibition and Sponsors. Builds on base.css tokens and classes.
+   Mobile first; breakpoints 600px (2-column cards and fields), 768px and 1100px. */
+
+.exh-band-lead { max-width: 40ch; margin-top: var(--s-4); }
+
+/* Intro */
+.exh-intro { display: grid; gap: var(--s-8); }
+.exh-intro .lead + .lead { margin-top: var(--s-4); }
+.exh-intro .btn { margin-top: var(--s-6); }
+.exh-photo { margin: 0; }
+.exh-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Fourth icon tile (Deep Green) */
+.exh-tile--deep { background: var(--green-deep); color: #fff; }
+
+/* Steps */
+.exh-steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 0 0 var(--s-8);
+  padding: 0;
+  display: grid;
+  gap: var(--s-3);
+}
+.exh-steps li {
+  counter-increment: step;
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+.exh-steps li::before {
+  content: counter(step);
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  background: var(--yellow);
+  border: var(--border);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+/* Form */
+.exh-form { background: #fff; padding: var(--s-6); display: grid; gap: var(--s-5); }
+.exh-note { margin: 0; font-size: 14px; color: var(--slate); }
+.exh-req { color: var(--red-action); font-weight: 700; }
+.exh-opt { font-weight: 400; color: var(--slate); }
+
+.exh-fields { display: grid; gap: var(--s-5); }
+.exh-field { display: grid; gap: var(--s-2); }
+.exh-field label,
+.exh-interest legend { font-weight: 600; font-size: 14px; color: var(--ink); }
+
+.exh-field input,
+.exh-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--s-3) var(--s-4);
+  font: inherit;
+  font-size: 16px; /* stops iOS zooming on focus */
+  color: var(--ink);
+  background: #fff;
+  border: var(--border);
+  border-radius: 8px;
+}
+.exh-field textarea { min-height: 120px; resize: vertical; }
+.exh-field input:focus-visible,
+.exh-field textarea:focus-visible,
+.exh-choice:has(input:focus-visible) {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--yellow);
+}
+.exh-field [aria-invalid="true"] { border-color: var(--red-action); }
+
+.exh-interest { margin: 0; padding: 0; border: 0; min-width: 0; display: grid; gap: var(--s-2); }
+.exh-interest legend { padding: 0; margin-bottom: var(--s-2); }
+.exh-choices { display: grid; gap: var(--s-3); }
+
+.exh-choice {
+  position: relative;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  column-gap: var(--s-3);
+  min-height: 48px;
+  padding: var(--s-3) var(--s-4);
+  background: #fff;
+  border: var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.exh-choice input { grid-row: 1 / span 2; margin: 2px 0 0; width: 18px; height: 18px; accent-color: var(--green-deep); }
+.exh-choice__title { font-weight: 600; font-size: 14px; color: var(--ink); }
+.exh-choice__text { font-size: 14px; color: var(--slate); }
+.exh-choice:has(input:checked) { background: var(--offwhite); box-shadow: inset 0 0 0 2px var(--green-deep); }
+
+.exh-status:empty { display: none; }
+.exh-status { padding: var(--s-3) var(--s-4); border: var(--border); border-radius: 8px; font-weight: 600; }
+.exh-status[data-state="success"] { background: var(--offwhite); border-color: var(--green-deep); }
+.exh-status[data-state="error"] { border-color: var(--red-action); }
+
+.exh-form .btn { justify-self: start; }
+.exh-privacy { margin: 0; font-size: 14px; color: var(--slate); }
+
+/* Spam trap, off-screen but not display:none so simple bots still fill it */
+.exh-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Sponsor placeholders: three across on every screen, as in the design */
+.exh-logos { grid-template-columns: repeat(3, 1fr); }
+
+@media (min-width: 600px) {
+  .exh-fields { grid-template-columns: 1fr 1fr; }
+  .exh-field--full { grid-column: 1 / -1; }
+  .exh-choices { grid-template-columns: 1fr 1fr; }
+  .exh-form { padding: var(--s-8); }
+}
+
+@media (min-width: 1100px) {
+  .exh-intro { grid-template-columns: 1fr 1fr; gap: var(--s-12); align-items: center; }
+}
