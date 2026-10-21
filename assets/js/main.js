@@ -287,9 +287,11 @@ function renderSponsors() {
   const list = $("[data-sponsors]");
   if (!list) return;
 
-  if (!SPONSORS.length) {
+    if (!SPONSORS.length) {
+    // CHANGED: placeholder count can be set per page with data-placeholders (Home stays at 8)
+    const count = Number(list.dataset.placeholders) || 8;
     list.replaceChildren(
-      ...Array.from({ length: 8 }, () => {
+      ...Array.from({ length: count }, () => {
         const li = el("li", "logo-box", "Sponsor logo");
         li.setAttribute("aria-hidden", "true");
         return li;
