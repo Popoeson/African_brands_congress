@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44" height="44">
+  <title>African Brands Congress</title>
+  <!-- PLACEHOLDER redrawn from the design screenshot. Replace with the client's vector logo. -->
+  <rect x="1.5" y="1.5" width="41" height="41" rx="9" fill="#fff" stroke="#111" stroke-width="3"/>
+  <circle cx="13" cy="13" r="5" fill="#C8102E" stroke="#111" stroke-width="2"/>
+  <path d="M5 39V29q0-6 7-6t7 6v10z" fill="#00A651" stroke="#111" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M22 39 30 8l9 31z" fill="#FFD400" stroke="#111" stroke-width="2" stroke-linejoin="round"/>
+</svg>
