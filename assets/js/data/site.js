@@ -34,3 +34,14 @@ export const PAST_EDITIONS = [
  * { name: "Company", logo: "/assets/img/sponsors/company.webp", url: "https://..." }
  */
 export const SPONSORS = [];
+
+/**
+ * Timeline on the About page. Years 2021 to 2023 are NOT confirmed: client to confirm.
+ * theme and venue stay null until supplied; the page shows "to be added".
+ * The upcoming edition is added automatically from events.js.
+ */
+export const TIMELINE = [
+  { year: 2021, theme: null, venue: null },
+  { year: 2022, theme: null, venue: null },
+  { year: 2023, theme: null, venue: null },
+];
