@@ -1,0 +1,103 @@
+/* ABC Home page styles (loaded after base.css) */
+
+/* Hero */
+.hero {
+  background: var(--offwhite);
+  border-bottom: var(--border);
+  padding-block: var(--s-4) var(--s-6);
+}
+.hero__grid { display: grid; gap: var(--s-4); }
+.hero__meta { font-weight: 600; margin-bottom: var(--s-3); }
+.hero__actions { display: grid; gap: var(--s-2); margin-top: var(--s-3); }
+.hero__img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: var(--border);
+  border-radius: var(--radius);
+}
+.hero[data-state="past"] .hero__media { display: none; }
+
+@media (min-width: 600px) {
+  .hero__actions { display: flex; flex-wrap: wrap; }
+}
+@media (min-width: 1100px) {
+  .hero { padding-block: var(--s-8); }
+  .hero__grid { grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: var(--s-8); }
+}
+
+/* Countdown: four yellow tiles with dark numbers */
+.countdown { min-height: 88px; }
+.countdown__tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-1); }
+.countdown__tile {
+  padding: var(--s-1) 4px;
+  text-align: center;
+  line-height: 1.1;
+  background: var(--yellow);
+  color: var(--ink);
+  border: var(--border);
+  border-radius: var(--radius);
+}
+.countdown__num {
+  display: block;
+  font: 800 clamp(1.5rem, 6vw, 2.5rem)/1.1 var(--font-head);
+  font-variant-numeric: tabular-nums;
+}
+.countdown__label { display: block; font-size: 0.875rem; font-weight: 600; }
+.countdown__live {
+  padding: var(--s-2);
+  text-align: center;
+  font: 700 1.25rem var(--font-head);
+  background: var(--yellow);
+  border: var(--border);
+  border-radius: var(--radius);
+}
+.notice {
+  padding: var(--s-2);
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+/* Pillars: shapes taken from the logo */
+.shape { width: 48px; height: 48px; margin-bottom: var(--s-2); }
+.shape--triangle { background: var(--green); clip-path: polygon(50% 5%, 100% 95%, 0 95%); }
+.shape--circle { background: var(--yellow); border: var(--border); border-radius: 50%; }
+.shape--arc { height: 24px; margin-top: 24px; background: var(--green-deep); border-radius: 48px 48px 0 0; }
+
+/* Sub-theme cards */
+.subtheme__num {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--s-2);
+  font: 700 1rem var(--font-head);
+  color: var(--white);
+  background: var(--green-deep);
+  border-radius: 50%;
+}
+
+/* Teasers */
+.teaser { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s-2); }
+.teaser p { margin: 0; }
+
+/* Sponsor and partner placeholders */
+.logo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-2); margin-top: var(--s-3); }
+.logo-box {
+  aspect-ratio: 3 / 2;
+  background: var(--white);
+  border: 2px dashed var(--slate);
+  border-radius: var(--radius);
+}
+@media (min-width: 768px) { .logo-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* Final call to action */
+.cta-band {
+  padding-block: var(--s-8);
+  text-align: center;
+  background: var(--yellow);
+  border-block: var(--border);
+}
+.cta-band .btn { margin-top: var(--s-2); }
