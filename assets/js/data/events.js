@@ -30,7 +30,7 @@ export const EVENTS = [
 
     // When a photo is ready, replace null with:
     // { src: "/assets/img/hero-2026.webp", alt: "Describe the photo", width: 1200, height: 900 }
-    heroImage: src: {"/assets/img/hero-2026.webp", alt: "Describe the photo", width: 1200, height: 900,}
+    heroImage: {src: "/assets/img/hero-2026.webp", alt: "Describe the photo", width: 1200, height: 900,}
 
     // Thumbnails: 16:9, compressed, under 200 KB. When ready, replace null with:
     // { src: "/assets/img/subthemes/01-consumer-insight.webp", alt: "Describe the image", width: 800, height: 450 }
