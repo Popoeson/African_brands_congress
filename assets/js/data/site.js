@@ -21,7 +21,9 @@ export const SITE = {
  * image: { src, alt, width, height } or null (4:3, compressed, under 200 KB).
  */
 export const PAST_EDITIONS = [
-  { year: 2021, image: null },
+  { year: 2021, image: { src: "/assets/img/ABC2021.webp", alt: "2022 Event", width: 800, height: 450 },
+
+ },
   { year: 2022, image: null },
 ];
 
