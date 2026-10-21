@@ -1,11 +1,56 @@
 /* ABC: shared behaviour.
    Header and footer markup lives in each page. This file handles the mobile
-   menu, active link, and everything driven by /assets/js/data/events.js. */
+   menu, active link, and everything driven by the data files:
+   /assets/js/data/events.js (event) and /assets/js/data/site.js (site-wide). */
 
 import { EVENTS, LABELS, NO_UPCOMING } from "/assets/js/data/events.js";
+import { SITE, PAST_EDITIONS, SPONSORS } from "/assets/js/data/site.js";
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+const ICONS = "/assets/img/icons.svg";
+const SVG_NS = "http://www.w3.org/2000/svg";
+
+function icon(name) {
+  const svg = document.createElementNS(SVG_NS, "svg");
+  svg.setAttribute("class", "icon");
+  svg.setAttribute("aria-hidden", "true");
+  const use = document.createElementNS(SVG_NS, "use");
+  use.setAttribute("href", `${ICONS}#${name}`);
+  svg.append(use);
+  return svg;
+}
+
+function el(tag, cls, text) {
+  const node = document.createElement(tag);
+  if (cls) node.className = cls;
+  if (text) node.textContent = text;
+  return node;
+}
+
+/* Photo placeholder: icon and caption */
+function placeholder(caption, extraClass) {
+  const box = el("div", `ph${extraClass ? " " + extraClass : ""}`);
+  box.setAttribute("role", "img");
+  box.setAttribute("aria-label", caption);
+  const label = el("span", null, caption);
+  label.setAttribute("aria-hidden", "true");
+  box.append(icon("image"), label);
+  return box;
+}
+
+function photo({ src, alt, width, height }, cls) {
+  const img = new Image();
+  img.src = src;
+  img.alt = alt || "";
+  if (width) img.width = width;
+  if (height) img.height = height;
+  img.loading = "lazy";
+  img.decoding = "async";
+  if (cls) img.className = cls;
+  return img;
+}
 
 /* 1. Pick the nearest upcoming event (null if none) */
 function getNextEvent(now = Date.now()) {
@@ -22,14 +67,13 @@ function initMenu() {
   const nav = $("#site-nav");
   if (!btn || !nav) return;
 
-  const label = $("[data-menu-label]", btn);
   const desktop = window.matchMedia("(min-width: 1100px)");
   const isOpen = () => btn.getAttribute("aria-expanded") === "true";
 
   function setOpen(open) {
     nav.classList.toggle("is-open", open);
     btn.setAttribute("aria-expanded", String(open));
-    if (label) label.textContent = open ? "Close" : "Menu";
+    btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     document.documentElement.classList.toggle("no-scroll", open);
   }
 
@@ -78,20 +122,20 @@ function markActiveLink() {
   });
 }
 
-/* 4. Register buttons (header, hero, final call, footer) */
+/* 4. Register buttons (header, hero, call to action, footer) */
 function applyRegisterCtas(event) {
   const s = event
     ? { label: LABELS.registerLabel, short: LABELS.registerShortLabel, url: event.registerUrl || "/register" }
     : { label: NO_UPCOMING.registerLabel, short: NO_UPCOMING.registerShortLabel, url: NO_UPCOMING.registerUrl };
 
-  $$("[data-register-cta]").forEach((a) => {
-    a.textContent = s.label;
-    a.href = s.url;
-  });
-  $$("[data-register-cta-short]").forEach((a) => {
-    a.textContent = s.short;
-    a.href = s.url;
-  });
+  const apply = (selector, label) =>
+    $$(selector).forEach((a) => {
+      a.href = s.url;
+      ($("[data-register-label]", a) || a).textContent = label;
+    });
+
+  apply("[data-register-cta]", s.label);
+  apply("[data-register-cta-short]", s.short);
 }
 
 /* 5. Home hero */
@@ -99,49 +143,50 @@ function renderHero(event) {
   const hero = $("[data-hero]");
   if (!hero) return;
 
-  const setText = (key, text) => {
-    const el = $(`[data-hero-${key}]`, hero);
-    if (el) el.textContent = text;
+  const text = (sel, value) => {
+    const node = $(sel, hero);
+    if (node) node.textContent = value;
   };
+  const badge = $("[data-hero-badge]", hero);
+  const facts = $("[data-hero-facts]", hero);
+  const message = $("[data-hero-message]", hero);
+  const countdown = $("[data-countdown]", hero);
   const exhibit = $("[data-exhibit-cta]", hero);
   const news = $("[data-news-cta]", hero);
-  const countdown = $("[data-countdown]", hero);
-  const ctaTitle = $("[data-cta-title]");
 
   if (!event) {
     hero.dataset.state = "past";
-    setText("eyebrow", NO_UPCOMING.eyebrow);
-    setText("title", NO_UPCOMING.title);
-    setText("meta", NO_UPCOMING.message);
+    if (badge) badge.hidden = true;
+    if (facts) facts.hidden = true;
     if (countdown) countdown.hidden = true;
     if (exhibit) exhibit.hidden = true;
-    if (news) {
-      news.hidden = false;
-      news.href = NO_UPCOMING.newsUrl;
+    text("[data-hero-eyebrow]", NO_UPCOMING.eyebrow);
+    text("[data-hero-title]", NO_UPCOMING.title);
+    if (message) {
+      message.textContent = NO_UPCOMING.message;
+      message.hidden = false;
     }
-    if (ctaTitle) ctaTitle.textContent = NO_UPCOMING.ctaTitle;
+    if (news) {
+      news.href = NO_UPCOMING.newsUrl;
+      news.hidden = false;
+    }
     return;
   }
 
   hero.dataset.state = "upcoming";
-  setText("eyebrow", event.name);
-  setText("title", event.theme);
-  setText("meta", `${event.dateText} | ${event.venue}, ${event.city}, ${event.country}`);
+  text("[data-hero-eyebrow]", event.name);
+  text("[data-hero-title]", event.theme);
+  text("[data-hero-date]", event.dateText);
+  text("[data-hero-venue]", `${event.venue}, ${event.city}`);
+  text("[data-hero-tagline]", event.tagline);
   if (exhibit) exhibit.href = event.exhibitUrl || "/exhibition";
-  if (ctaTitle) ctaTitle.textContent = `Join us at ${event.name}`;
 
-  const media = $("[data-hero-media]", hero);
-  if (event.heroImage && media) {
-    const { src, alt, width, height } = event.heroImage;
-    const img = new Image();
-    img.src = src;
-    img.alt = alt || "";
-    img.width = width;
-    img.height = height;
-    img.decoding = "async";
+  const slot = $("[data-hero-photo]", hero);
+  if (event.heroImage && slot) {
+    const img = photo(event.heroImage);
+    img.loading = "eager";
     img.fetchPriority = "high";
-    img.className = "hero__img";
-    media.replaceChildren(img);
+    slot.replaceChildren(img);
   }
 
   if (countdown) startCountdown(event, countdown);
@@ -176,7 +221,7 @@ function startCountdown(event, root) {
   timer = setInterval(tick, 1000);
 }
 
-/* 7. Sub-themes (from the event data) */
+/* 7. Sub-themes with image thumbnails */
 function renderSubThemes(event) {
   const list = $("[data-subthemes]");
   if (!list) return;
@@ -187,31 +232,159 @@ function renderSubThemes(event) {
     return;
   }
 
+  const words = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
+  const count = event.subThemes.length;
+  const heading = $("[data-subthemes-title]");
+  if (heading) heading.textContent = `${words[count] ?? count} sub-themes for ${event.startsAt.slice(0, 4)}`;
+
   list.replaceChildren(
     ...event.subThemes.map((t, i) => {
-      const li = document.createElement("li");
-      li.className = "card subtheme";
+      const li = el("li", "card media-card subtheme");
+      li.dataset.reveal = "";
 
-      const num = document.createElement("span");
-      num.className = "subtheme__num";
+      const media = t.image
+        ? photo(t.image, "media-card__media")
+        : placeholder(`Thumbnail to be added: ${t.title}`, "media-card__media");
+
+      const body = el("div", "media-card__body");
+      const num = el("span", "subtheme__num", String(i + 1));
       num.setAttribute("aria-hidden", "true");
-      num.textContent = String(i + 1);
+      body.append(num, el("h3", null, t.title));
+      if (t.text) body.append(el("p", null, t.text));
 
-      const h3 = document.createElement("h3");
-      h3.textContent = t.title;
+      li.append(media, body);
+      return li;
+    })
+  );
+}
 
-      li.append(num, h3);
-      if (t.text) {
-        const p = document.createElement("p");
-        p.textContent = t.text;
-        li.append(p);
+/* 8. Past editions carousel */
+function renderEditions() {
+  const list = $("[data-editions]");
+  if (!list) return;
+  const section = list.closest("section");
+
+  if (!PAST_EDITIONS.length) {
+    if (section) section.hidden = true;
+    return;
+  }
+
+  list.replaceChildren(
+    ...PAST_EDITIONS.map((e) => {
+      const li = el("li", "edition");
+      const badge = el("span", "edition__badge", `ABC ${e.year}`);
+      const media = e.image
+        ? photo({ alt: `Photo from ABC ${e.year}`, ...e.image })
+        : placeholder(`Photo from ABC ${e.year}`);
+      li.append(media, badge);
+      return li;
+    })
+  );
+}
+
+/* 9. Sponsors and partners */
+function renderSponsors() {
+  const list = $("[data-sponsors]");
+  if (!list) return;
+
+  if (!SPONSORS.length) {
+    list.replaceChildren(
+      ...Array.from({ length: 8 }, () => {
+        const li = el("li", "logo-box", "Sponsor logo");
+        li.setAttribute("aria-hidden", "true");
+        return li;
+      })
+    );
+    return;
+  }
+
+  list.replaceChildren(
+    ...SPONSORS.map((s) => {
+      const li = el("li", "logo-box");
+      const img = photo({ src: s.logo, alt: s.name });
+      if (s.url) {
+        const a = el("a");
+        a.href = s.url;
+        a.rel = "noopener";
+        a.append(img);
+        li.append(a);
+      } else {
+        li.append(img);
       }
       return li;
     })
   );
 }
 
-/* 8. schema.org Event, built from the same data */
+/* 10. Call to action and footer event details */
+function renderCta(event) {
+  const title = $("[data-cta-title]");
+  const body = $("[data-cta-text]");
+  const footerEvent = $("[data-footer-event]");
+
+  if (!event) {
+    if (title) title.textContent = NO_UPCOMING.ctaTitle;
+    if (body) {
+      body.textContent = NO_UPCOMING.message;
+      body.hidden = false;
+    }
+    if (footerEvent) footerEvent.hidden = true;
+    return;
+  }
+
+  const dayMonth = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", timeZone: "Africa/Lagos" }).format(event.start);
+  if (title) title.textContent = `Be in the room on ${dayMonth}`;
+  if (body) {
+    body.textContent = `Register to attend ${event.name}: ${event.dateText}, ${event.venue}, ${event.city}.`;
+    body.hidden = false;
+  }
+  if (footerEvent) {
+    const date = $("[data-footer-date]", footerEvent);
+    const place = $("[data-footer-place]", footerEvent);
+    if (date) date.textContent = event.dateText;
+    if (place) place.textContent = `${event.venue}, ${event.city}, ${event.country}`;
+  }
+}
+
+/* 11. Contact, social and privacy details (site.js) */
+function applySite() {
+  const set = (key, value, href) => {
+    if (!value) return;
+    $$(`[data-site="${key}"]`).forEach((node) => {
+      if (href) {
+        const a = el("a", null, value);
+        a.href = href;
+        node.replaceChildren(a);
+      } else {
+        node.textContent = value;
+      }
+    });
+  };
+  set("email", SITE.email, SITE.email && `mailto:${SITE.email}`);
+  set("phone", SITE.phone, SITE.phone && `tel:${SITE.phone.replace(/\s+/g, "")}`);
+  set("address", SITE.address);
+
+  const privacy = $('[data-site="privacy"]');
+  if (privacy && SITE.privacyUrl) {
+    const a = el("a", null, "Read the full privacy policy.");
+    a.href = SITE.privacyUrl;
+    privacy.replaceChildren(a);
+  }
+
+  let anySocial = false;
+  Object.entries(SITE.social).forEach(([name, url]) => {
+    const a = $(`[data-social="${name}"]`);
+    if (a && url) {
+      a.href = url;
+      a.hidden = false;
+      anySocial = true;
+    }
+  });
+  const group = $("[data-social-group]");
+  if (group) group.hidden = !anySocial;
+}
+
+/* 12. schema.org Event, built from the same data */
 function injectEventSchema(event) {
   if (!event || !$("[data-hero]")) return;
   const data = {
@@ -237,12 +410,12 @@ function injectEventSchema(event) {
   document.head.append(script);
 }
 
-/* 9. Footer year */
+/* 13. Footer year */
 function setYear() {
-  $$("[data-year]").forEach((el) => (el.textContent = String(new Date().getFullYear())));
+  $$("[data-year]").forEach((n) => (n.textContent = String(new Date().getFullYear())));
 }
 
-/* 10. Gentle reveal on scroll (below-the-fold items only, off for reduced motion) */
+/* 14. Gentle reveal on scroll (below-the-fold items only, off for reduced motion) */
 function initReveal() {
   if (!("IntersectionObserver" in window)) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -260,10 +433,10 @@ function initReveal() {
   );
 
   $$("[data-reveal]")
-    .filter((el) => el.getBoundingClientRect().top > window.innerHeight)
-    .forEach((el) => {
-      el.classList.add("reveal");
-      io.observe(el);
+    .filter((n) => n.getBoundingClientRect().top > window.innerHeight)
+    .forEach((n) => {
+      n.classList.add("reveal");
+      io.observe(n);
     });
 }
 
@@ -274,6 +447,10 @@ markActiveLink();
 applyRegisterCtas(nextEvent);
 renderHero(nextEvent);
 renderSubThemes(nextEvent);
+renderEditions();
+renderSponsors();
+renderCta(nextEvent);
+applySite();
 injectEventSchema(nextEvent);
 setYear();
 initReveal();
