@@ -38,32 +38,32 @@ export const EVENTS = [
     },
 
     // Thumbnails: 16:9, compressed, under 200 KB. When ready, replace null with:
-    // { src: "/assets/img/subthemes/01-consumer-insight.webp", alt: "Describe the image", width: 800, height: 450 }
+    // { src: "/assets/img/subthemes/01-consumer-insight.webp", alt: "Consumer insight", width: 800, height: 450 }
     subThemes: [
       {
         title: "AI-Powered Consumer Insight",
         text: "How brands use AI to read demand, behaviour and sentiment across African markets, and turn those signals into decisions.",
-        image: null,
+        image: { src: "/assets/img/subthemes/01-consumer-insight.webp", alt: "Consumer insight", width: 800, height: 450 },
       },
       {
         title: "Generative AI in Content and Creative Work",
         text: "What changes when content can be generated at scale, and how creative teams keep brands distinctive.",
-        image: null,
+        image: { src: "/assets/img/subthemes/content.webp", alt: "Describe the image", width: 800, height: 450 },
       },
       {
         title: "Automation, Customer Experience and Digital Trust",
         text: "Using automation to serve customers faster without losing the human trust that brands depend on.",
-        image: null,
+        image: { src: "/assets/img/subthemes/digital-trust.webp", alt: "Describe the image", width: 800, height: 450 },
       },
       {
         title: "AI, Ethics and Brand Governance",
         text: "The policies, safeguards and accountability brands need as AI shapes what they say and do.",
-        image: null,
+        image: { src: "/assets/img/subthemes/ethics.webp", alt: "Describe the image", width: 800, height: 450 },
       },
       {
         title: "Building AI-Ready Brand Organisations",
         text: "The skills, structures and leadership it takes to adopt AI across marketing and brand teams.",
-        image: null,
+        image: { src: "/assets/img/subthemes/brand-organization.webp", alt: "Describe the image", width: 800, height: 450 },
       },
     ],
   },
