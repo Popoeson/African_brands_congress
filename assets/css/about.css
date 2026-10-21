@@ -1,0 +1,191 @@
+/* About page. Uses tokens from base.css. Mobile first; breakpoints 768px and 1100px. */
+
+.about-wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.about-section { padding-block: 64px; background: #fff; }
+.about-section--alt { background: var(--offwhite); }
+
+.about-band-lead {
+  max-width: 40ch;
+  margin-top: 16px;
+}
+
+.about-head { margin-bottom: 32px; }
+.about-head .marker { display: inline-flex; margin-bottom: 16px; }
+.about-head h2 { margin: 0; }
+.about-head .about-lead { margin-top: 16px; }
+
+.about-lead { color: var(--slate); }
+.about-lead + .about-lead { margin-top: 16px; }
+.about-body { color: var(--ink); margin-top: 12px; }
+
+/* Who ABC is */
+.about-split { display: grid; gap: 32px; }
+.about-photo { margin: 0; }
+.about-photo .ph { aspect-ratio: 5 / 4; width: 100%; }
+
+/* Mission and objectives */
+.about-two { display: grid; gap: 40px; }
+.about-two h3 { margin: 0; }
+
+.about-checks {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 24px;
+}
+.about-checks li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.about-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--green);
+  border: var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+}
+.about-check .icon { width: 16px; height: 16px; }
+
+/* Cards (benefits, outcomes, side events) */
+.about-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+.about-card {
+  height: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+}
+.about-card h3 { margin: 4px 0 0; }
+.about-card p { margin: 0; color: var(--slate); }
+.about-card .icon-tile { color: var(--green-deep); align-self: flex-start; }
+
+/* Expected outcomes */
+.about-outcomes { display: grid; gap: 32px; }
+.about-feature { background: var(--yellow); }
+.about-feature p { color: var(--ink); }
+.about-feature .icon-tile { background: #fff; color: var(--ink); }
+
+.about-diamonds { list-style: none; margin: 0; padding: 0; }
+.about-diamonds li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding-block: 20px;
+  border-bottom: 2px solid rgba(17, 17, 17, 0.12);
+}
+.about-diamonds li:last-child { border-bottom: 0; }
+.about-diamonds li::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  margin: 8px 0 0 4px;
+  background: var(--green);
+  border: 2px solid var(--ink);
+  transform: rotate(45deg);
+}
+
+/* Timeline */
+.about-timeline { list-style: none; margin: 0; padding: 0; }
+.about-timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  column-gap: 20px;
+  padding-bottom: 40px;
+}
+.about-timeline li:last-child { padding-bottom: 0; }
+.about-timeline li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 39px;
+  top: 40px;
+  bottom: 0;
+  width: 2px;
+  background: var(--ink);
+}
+.about-timeline h3 { margin: 0; }
+.about-timeline p { margin: 4px 0 0; color: var(--slate); }
+
+.about-year {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  height: 40px;
+  background: #fff;
+  border: var(--border);
+  border-radius: 999px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.about-year--next { background: var(--yellow); }
+.about-timeline .about-next-label {
+  margin: 0 0 4px;
+  color: var(--green-deep);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Side events */
+.about-event { --mark: var(--green); }
+.about-event--green { --mark: var(--green); }
+.about-event--yellow { --mark: var(--yellow); }
+.about-event--red { --mark: var(--red-action); }
+.about-event--deep { --mark: var(--green-deep); }
+
+.about-mark {
+  width: 56px;
+  height: 32px;
+  fill: var(--mark);
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.about-card p.about-tba {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--slate);
+}
+
+/* Closing CTA content alignment (scallop and colours come from .cta in base.css) */
+.cta .about-wrap > * + * { margin-top: 16px; }
+
+/* Tablet */
+@media (min-width: 768px) {
+  .about-wrap { padding-inline: 32px; }
+  .about-section { padding-block: 80px; }
+  .about-two { grid-template-columns: 1fr 1fr; gap: 48px; }
+  .about-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Desktop */
+@media (min-width: 1100px) {
+  .about-section { padding-block: 96px; }
+  .about-split { grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .about-grid { grid-template-columns: repeat(3, 1fr); }
+  .about-grid--4 { grid-template-columns: repeat(4, 1fr); }
+  .about-outcomes { grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+}
