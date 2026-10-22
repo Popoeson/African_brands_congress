@@ -1,0 +1,125 @@
+/* Register page. Builds on base.css tokens and classes.
+   Mobile first; breakpoints 600px (two-column fields), 768px and 1100px. */
+
+.reg-band-lead { max-width: 44ch; margin-top: var(--s-4); }
+
+/* Date and venue in the title band */
+.reg-facts {
+  list-style: none;
+  margin: var(--s-4) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  color: #fff;
+}
+.reg-facts li { display: flex; align-items: center; gap: var(--s-2); }
+.reg-facts .icon { flex: none; color: var(--yellow); }
+
+/* Layout */
+.reg-layout { display: grid; gap: var(--s-8); }
+.reg-info h2 { margin: 0 0 var(--s-5); }
+
+.reg-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-4); }
+.reg-checks li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: var(--s-3);
+  align-items: start;
+}
+.reg-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--green);
+  border: var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+}
+.reg-check .icon { width: 16px; height: 16px; }
+
+.reg-fees {
+  margin: var(--s-6) 0 0;
+  padding: var(--s-3) var(--s-4);
+  font-size: 14px;
+  color: var(--slate);
+  background: #fff;
+  border: 2px dashed var(--slate);
+  border-radius: 8px;
+}
+
+/* Form */
+.reg-form { background: #fff; padding: var(--s-6); display: grid; gap: var(--s-5); align-content: start; }
+.reg-form h2 { margin: 0; }
+.reg-note { margin: 0; font-size: 14px; color: var(--slate); }
+.reg-req { color: var(--red-action); font-weight: 700; }
+.reg-opt { font-weight: 400; color: var(--slate); }
+
+.reg-fields { display: grid; gap: var(--s-5); align-items: start; }
+.reg-field { display: grid; gap: var(--s-2); }
+.reg-field label { font-weight: 600; font-size: 14px; color: var(--ink); }
+.reg-hint { font-size: 14px; color: var(--slate); }
+
+.reg-field input,
+.reg-field select {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--s-3) var(--s-4);
+  font: inherit;
+  font-size: 16px; /* stops iOS zooming on focus */
+  color: var(--ink);
+  background: #fff;
+  border: var(--border);
+  border-radius: 8px;
+}
+.reg-field select {
+  appearance: none;
+  padding-right: var(--s-10);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--s-4) center;
+}
+.reg-field input:focus-visible,
+.reg-field select:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--yellow);
+}
+.reg-field [aria-invalid="true"] { border-color: var(--red-action); }
+
+.reg-status:empty { display: none; }
+.reg-status { padding: var(--s-3) var(--s-4); border: var(--border); border-radius: 8px; font-weight: 600; }
+.reg-status[data-state="success"] { background: var(--offwhite); border-color: var(--green-deep); }
+.reg-status[data-state="error"] { border-color: var(--red-action); }
+
+.reg-submit {
+  display: grid;
+  gap: var(--s-4);
+  padding-top: var(--s-5);
+  border-top: 2px solid rgba(17, 17, 17, 0.12);
+}
+.reg-submit .btn { width: 100%; }
+.reg-privacy {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: var(--s-2);
+  align-items: start;
+  font-size: 14px;
+  color: var(--slate);
+}
+.reg-privacy .icon { width: 16px; height: 16px; margin-top: 3px; }
+
+/* Spam trap, off-screen but not display:none so simple bots still fill it */
+.reg-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+@media (min-width: 600px) {
+  .reg-fields { grid-template-columns: 1fr 1fr; }
+  .reg-field--full { grid-column: 1 / -1; }
+  .reg-form { padding: var(--s-8); }
+}
+
+@media (min-width: 1100px) {
+  .reg-layout { grid-template-columns: 1fr 1.3fr; gap: var(--s-12); align-items: start; }
+}
