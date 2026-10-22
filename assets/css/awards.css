@@ -227,3 +227,53 @@
   .aw-groups { grid-template-columns: 1fr 1fr; gap: var(--s-10) var(--s-8); align-items: start; }
   .aw-winners { grid-template-columns: repeat(4, 1fr); }
 }
+
+/* ADDED: Awards enquiry form */
+.aw-form { background: #fff; padding: var(--s-6); display: grid; gap: var(--s-5); }
+.aw-note { margin: 0; font-size: 14px; color: var(--slate); }
+.aw-req { color: var(--red-action); font-weight: 700; }
+.aw-opt { font-weight: 400; color: var(--slate); }
+
+.aw-fields { display: grid; gap: var(--s-5); }
+.aw-field { display: grid; gap: var(--s-2); }
+.aw-field label { font-weight: 600; font-size: 14px; color: var(--ink); }
+
+.aw-field input,
+.aw-field select,
+.aw-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--s-3) var(--s-4);
+  font: inherit;
+  font-size: 16px; /* stops iOS zooming on focus */
+  color: var(--ink);
+  background: #fff;
+  border: var(--border);
+  border-radius: 8px;
+}
+.aw-field textarea { min-height: 120px; resize: vertical; }
+.aw-field input:focus-visible,
+.aw-field select:focus-visible,
+.aw-field textarea:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--yellow);
+}
+.aw-field [aria-invalid="true"] { border-color: var(--red-action); }
+
+.aw-status:empty { display: none; }
+.aw-status { padding: var(--s-3) var(--s-4); border: var(--border); border-radius: 8px; font-weight: 600; }
+.aw-status[data-state="success"] { background: var(--offwhite); border-color: var(--green-deep); }
+.aw-status[data-state="error"] { border-color: var(--red-action); }
+
+.aw-form .btn { justify-self: start; }
+.aw-privacy { margin: 0; font-size: 14px; color: var(--slate); }
+
+/* Spam trap, off-screen but not display:none so simple bots still fill it */
+.aw-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+@media (min-width: 600px) {
+  .aw-fields { grid-template-columns: 1fr 1fr; }
+  .aw-field--full { grid-column: 1 / -1; }
+  .aw-form { padding: var(--s-8); }
+}
