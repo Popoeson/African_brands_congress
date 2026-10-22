@@ -183,6 +183,63 @@
       </div>
     </section>
 
+    <!-- ADDED: Awards enquiry form (posts to /api/awards once forms.js is added) -->
+    <section class="section section--alt" id="enquiry" aria-labelledby="aw-enquiry-title">
+      <div class="container">
+        <div class="section__head">
+          <span class="marker" aria-hidden="true"></span>
+          <h2 id="aw-enquiry-title">Awards enquiry</h2>
+          <p class="lead">Questions about categories, eligibility or entering? Send us a note.</p>
+        </div>
+
+        <form class="aw-form card" method="post" action="/api/awards" data-form="awards" novalidate>
+          <p class="aw-note">Fields marked <span class="aw-req" aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+
+          <div class="aw-fields">
+            <div class="aw-field">
+              <label for="aw-name">Full name <span class="aw-req" aria-hidden="true">*</span></label>
+              <input id="aw-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="aw-field">
+              <label for="aw-email">Email address <span class="aw-req" aria-hidden="true">*</span></label>
+              <input id="aw-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="aw-field">
+              <label for="aw-phone">Phone number <span class="aw-opt">(optional)</span></label>
+              <input id="aw-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="aw-field">
+              <label for="aw-company">Company <span class="aw-req" aria-hidden="true">*</span></label>
+              <input id="aw-company" name="company" type="text" autocomplete="organization" required>
+            </div>
+            <div class="aw-field aw-field--full">
+              <label for="aw-category">Category of interest <span class="aw-req" aria-hidden="true">*</span></label>
+              <!-- Options are added by /assets/js/awards.js from /assets/js/data/awards.js -->
+              <select id="aw-category" name="category" required data-aw-select>
+                <option value="" selected>Select a category</option>
+              </select>
+            </div>
+            <div class="aw-field aw-field--full">
+              <label for="aw-message">Message <span class="aw-opt">(optional)</span></label>
+              <textarea id="aw-message" name="message" rows="4"></textarea>
+            </div>
+          </div>
+
+          <!-- Spam trap: real visitors never see or fill this -->
+          <div class="aw-trap" aria-hidden="true">
+            <label for="aw-website">Leave this field empty</label>
+            <input id="aw-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="aw-status" data-form-status role="status" aria-live="polite"></div>
+
+          <button class="btn btn--primary" type="submit">Send enquiry</button>
+
+          <p class="aw-privacy">Privacy notice: we use the details you share only to manage registrations, enquiries and Congress updates. <span data-site="privacy">Full privacy policy to be announced.</span></p>
+        </form>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer: copy this block to every page -->
