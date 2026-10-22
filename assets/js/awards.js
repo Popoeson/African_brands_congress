@@ -44,6 +44,30 @@ function photo({ src, alt, width, height }) {
   return img;
 }
 
+/* Enquiry form: fill the "Category of interest" select from awards.js data */
+function renderCategorySelect() {
+  const select = $("[data-aw-select]");
+  if (!select) return;
+
+  let n = 0;
+  SECTORS.forEach((sector, si) => {
+    const sectorName = sector.name || `Sector ${si + 1}: name to be announced`;
+    const group = document.createElement("optgroup");
+    group.label = sectorName;
+
+    sector.categories.forEach((cat) => {
+      n += 1;
+      const label = cat.name || `Category ${n}: name to be announced`;
+      const opt = document.createElement("option");
+      opt.value = `${sectorName} / ${label}`;
+      opt.textContent = label;
+      group.append(opt);
+    });
+
+    select.append(group);
+  });
+}
+
 /* Accordion */
 function setOpen(btn, open) {
   btn.setAttribute("aria-expanded", String(open));
@@ -138,33 +162,9 @@ function renderWinners() {
       li.append(media, name, el("p", "aw-winner__meta", meta || "Category and year to be announced"));
       return li;
     })
-
-/* ADDED: fill the "Category of interest" select from awards.js data */
-function renderCategorySelect() {
-  const select = $("[data-aw-select]");
-  if (!select) return;
-
-  let n = 0;
-  SECTORS.forEach((sector, si) => {
-    const sectorName = sector.name || `Sector ${si + 1}: name to be announced`;
-    const group = document.createElement("optgroup");
-    group.label = sectorName;
-
-    sector.categories.forEach((cat) => {
-      n += 1;
-      const label = cat.name || `Category ${n}: name to be announced`;
-      const opt = document.createElement("option");
-      opt.value = `${sectorName} / ${label}`;
-      opt.textContent = label;
-      group.append(opt);
-    });
-
-    select.append(group);
-  });
-}
   );
 }
 
+renderCategorySelect(); // runs first so the form never depends on the sections below
 renderCategories();
 renderWinners();
-renderCategorySelect(); // ADDED
