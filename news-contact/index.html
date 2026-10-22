@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News and Contact | African Brands Congress</title>
+  <meta name="description" content="The latest from African Brands Congress, and how to reach the ABC team.">
+  <link rel="canonical" href="https://africanbrandscongress.com/news-contact">
+  <meta name="theme-color" content="#00693B">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="African Brands Congress">
+  <meta property="og:title" content="News and Contact | African Brands Congress">
+  <meta property="og:description" content="The latest from the Congress, and how to reach the ABC team.">
+  <meta property="og:url" content="https://africanbrandscongress.com/news-contact">
+  <!-- TODO: add og:image once the branded share image is ready -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/news-contact.css">
+  <link rel="modulepreload" href="/assets/js/main.js">
+  <link rel="modulepreload" href="/assets/js/news.js">
+  <link rel="modulepreload" href="/assets/js/data/news.js">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header: copy this block to every page -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="/" aria-label="African Brands Congress, home">
+        <img src="/assets/img/logo-mark.svg" alt="" width="44" height="44">
+        <span class="brand__name">African Brands Congress</span>
+      </a>
+
+      <nav id="site-nav" class="nav" aria-label="Main">
+        <ul class="nav__list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/programme">Programmes and Speakers</a></li>
+          <li><a href="/exhibition">Exhibition and Sponsors</a></li>
+          <li><a href="/awards">Awards</a></li>
+          <li><a href="/news-contact">News and Contact</a></li>
+          <li class="nav__mobile-only"><a href="/register" data-register-cta-short>Register</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--primary btn--sm" href="/register" data-register-cta-short>Register</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" data-menu-toggle>
+        <svg class="icon icon--open" aria-hidden="true"><use href="/assets/img/icons.svg#menu"/></svg>
+        <svg class="icon icon--close" aria-hidden="true"><use href="/assets/img/icons.svg#x"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Title band -->
+    <section class="title-band has-bunting" aria-labelledby="nc-title">
+      <div class="container">
+        <h1 id="nc-title">News and Contact</h1>
+        <p class="lead nc-band-lead">The latest from the Congress, and how to reach the ABC team.</p>
+      </div>
+    </section>
+
+    <!-- Latest news: cards are rendered by /assets/js/news.js from /assets/js/data/news.js -->
+    <section class="section" aria-labelledby="news-title">
+      <div class="container">
+        <div class="section__head">
+          <span class="marker" aria-hidden="true"></span>
+          <h2 id="news-title">Latest news</h2>
+        </div>
+        <ul class="nc-news" data-news-list></ul>
+        <p class="lead" data-news-empty hidden>News to be announced. Check back soon.</p>
+        <div class="nc-more">
+          <button class="btn btn--secondary" type="button" data-news-more hidden>Show more news</button>
+        </div>
+        <noscript><p class="notice">Turn on JavaScript to read the latest news, or contact the team.</p></noscript>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--alt" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section__head">
+          <span class="marker" aria-hidden="true"></span>
+          <h2 id="contact-title">Contact us</h2>
+        </div>
+
+        <div class="nc-layout">
+          <div class="nc-side">
+
+            <!-- Contact details: values come from /assets/js/data/site.js via main.js -->
+            <div class="card nc-card">
+              <h3>Contact details</h3>
+              <ul class="nc-list">
+                <li>
+                  <span class="nc-tile" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons.svg#mail"/></svg></span>
+                  <div><span class="nc-label">Email</span><span class="nc-value" data-site="email">Email address to be confirmed</span></div>
+                </li>
+                <li>
+                  <span class="nc-tile" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons.svg#phone"/></svg></span>
+                  <div><span class="nc-label">Phone</span><span class="nc-value" data-site="phone">Phone number to be confirmed</span></div>
+                </li>
+                <li>
+                  <span class="nc-tile" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons.svg#map-pin"/></svg></span>
+                  <div><span class="nc-label">Office</span><span class="nc-value" data-site="address">Office address to be confirmed</span></div>
+                </li>
+              </ul>
+
+              <div class="nc-social" data-social-group hidden>
+                <h4>Follow ABC</h4>
+                <div class="social-list">
+                  <a class="social" href="#" data-social="linkedin" aria-label="ABC on LinkedIn" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#linkedin"/></svg></a>
+                  <a class="social" href="#" data-social="twitter" aria-label="ABC on Twitter" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#twitter"/></svg></a>
+                  <a class="social" href="#" data-social="instagram" aria-label="ABC on Instagram" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#instagram"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Venue: decorative illustration, not a live map. Filled from events.js by /assets/js/news.js -->
+            <div data-venue>
+              <h3 class="nc-venue-title">Venue</h3>
+              <div class="nc-map">
+                <svg class="nc-map__art" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+                  <rect width="400" height="250" fill="#E6EEE6"/>
+                  <g stroke="#fff" stroke-width="14" fill="none">
+                    <path d="M0 62 L400 76"/>
+                    <path d="M0 150 L400 112"/>
+                    <path d="M120 0 L170 250"/>
+                    <path d="M300 0 L330 250"/>
+                  </g>
+                  <path d="M0 236 Q200 186 400 226 L400 250 L0 250Z" fill="#CFE0EE"/>
+                </svg>
+                <div class="nc-map__pin" aria-hidden="true">
+                  <span class="nc-map__label" data-venue-name>Lagos Oriental Hotel</span>
+                  <svg width="28" height="36" viewBox="0 0 28 36" focusable="false">
+                    <path d="M14 34C14 34 3 22 3 13a11 11 0 0 1 22 0c0 9-11 21-11 21Z" fill="#C8102E" stroke="#111111" stroke-width="2" stroke-linejoin="round"/>
+                    <circle cx="14" cy="13" r="4" fill="#fff" stroke="#111111" stroke-width="2"/>
+                  </svg>
+                </div>
+                <a class="nc-map__link" data-venue-link href="https://www.google.com/maps/search/?api=1&amp;query=Lagos%20Oriental%20Hotel%2C%20Lagos%2C%20Nigeria" target="_blank" rel="noopener">Open in Google Maps<span class="sr-only"> (opens in a new tab)</span></a>
+              </div>
+              <p class="nc-caption" data-venue-caption>Lagos Oriental Hotel, Lagos, Nigeria. Street address to be announced.</p>
+            </div>
+          </div>
+
+          <!-- Posts to /api/contact once forms.js is added -->
+          <form class="nc-form card" method="post" action="/api/contact" data-form="contact" novalidate>
+            <h3>Send us a message</h3>
+            <p class="nc-note">Fields marked <span class="nc-req" aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+
+            <div class="nc-fields">
+              <div class="nc-field">
+                <label for="nc-name">Full name <span class="nc-req" aria-hidden="true">*</span></label>
+                <input id="nc-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="nc-field">
+                <label for="nc-email">Email address <span class="nc-req" aria-hidden="true">*</span></label>
+                <input id="nc-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="nc-field nc-field--full">
+                <label for="nc-subject">Subject <span class="nc-req" aria-hidden="true">*</span></label>
+                <input id="nc-subject" name="subject" type="text" required>
+              </div>
+              <div class="nc-field nc-field--full">
+                <label for="nc-message">Message <span class="nc-req" aria-hidden="true">*</span></label>
+                <textarea id="nc-message" name="message" rows="5" required></textarea>
+              </div>
+            </div>
+
+            <!-- Spam trap: real visitors never see or fill this -->
+            <div class="nc-trap" aria-hidden="true">
+              <label for="nc-website">Leave this field empty</label>
+              <input id="nc-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="nc-status" data-form-status role="status" aria-live="polite"></div>
+
+            <button class="btn btn--primary" type="submit">Send message</button>
+
+            <p class="nc-privacy">Privacy notice: we use the details you share only to manage registrations, enquiries and Congress updates. <span data-site="privacy">Full privacy policy to be announced.</span></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- One shared popup for every news story. Filled by /assets/js/news.js -->
+  <dialog class="news-dialog" data-news-dialog aria-labelledby="news-dialog-title">
+    <div class="news-dialog__inner">
+      <div class="news-dialog__bar">
+        <button class="news-dialog__close" type="button" aria-label="Close" data-news-close>
+          <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#x"/></svg>
+        </button>
+      </div>
+      <div class="news-dialog__media" data-news-dialog-media></div>
+      <p class="news-dialog__date" data-news-dialog-date></p>
+      <h2 id="news-dialog-title" data-news-dialog-title></h2>
+      <div class="news-dialog__body" data-news-dialog-body></div>
+    </div>
+  </dialog>
+
+  <!-- Footer: copy this block to every page -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="/" aria-label="African Brands Congress, home">
+            <img src="/assets/img/logo-mark.svg" alt="" width="44" height="44">
+            <span class="brand__name">African Brands Congress</span>
+          </a>
+          <p>The annual pan-African gathering for brand owners, marketers, executives, regulators and investors.</p>
+          <p class="footer__tagline">Learn // Network // Celebrate</p>
+          <a class="btn btn--primary" href="/register" data-register-cta><span data-register-label>Register to attend</span></a>
+        </div>
+
+        <nav class="footer__links" aria-label="Quick links">
+          <h2>Quick links</h2>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/programme">Programmes and Speakers</a></li>
+            <li><a href="/exhibition">Exhibition and Sponsors</a></li>
+            <li><a href="/awards">Awards</a></li>
+            <li><a href="/news-contact">News and Contact</a></li>
+            <li><a href="/register">Register</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2>Contact</h2>
+          <ul class="footer__contact">
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#mail"/></svg>
+              <div><span class="footer__label">Email</span><span data-site="email">Email address to be confirmed</span></div>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#phone"/></svg>
+              <div><span class="footer__label">Phone</span><span data-site="phone">Phone number to be confirmed</span></div>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#map-pin"/></svg>
+              <div><span class="footer__label">Office</span><span data-site="address">Office address to be confirmed</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div data-social-group hidden>
+            <h2>Follow ABC</h2>
+            <div class="social-list">
+              <a class="social" href="#" data-social="linkedin" aria-label="ABC on LinkedIn" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#linkedin"/></svg></a>
+              <a class="social" href="#" data-social="twitter" aria-label="ABC on Twitter" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#twitter"/></svg></a>
+              <a class="social" href="#" data-social="instagram" aria-label="ABC on Instagram" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#instagram"/></svg></a>
+            </div>
+          </div>
+          <div data-footer-event style="margin-top:var(--s-6)">
+            <h2>Next event</h2>
+            <p data-footer-date></p>
+            <p data-footer-place></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>Privacy notice: we use the details you share only to manage registrations, enquiries and Congress updates. <span data-site="privacy">Full privacy policy to be announced.</span></p>
+        <p>&copy; <span data-year>2026</span> African Brands Congress</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+  <script type="module" src="/assets/js/news.js"></script>
+  <!-- TODO: add <script type="module" src="/assets/js/forms.js"></script> when forms.js is built -->
+</body>
+</html>
