@@ -287,8 +287,8 @@ function renderSponsors() {
   const list = $("[data-sponsors]");
   if (!list) return;
 
-    if (!SPONSORS.length) {
-    // CHANGED: placeholder count can be set per page with data-placeholders (Home stays at 8)
+  if (!SPONSORS.length) {
+    // Placeholder count can be set per page with data-placeholders (Home stays at 8)
     const count = Number(list.dataset.placeholders) || 8;
     list.replaceChildren(
       ...Array.from({ length: count }, () => {
@@ -366,24 +366,25 @@ function applySite() {
   set("phone", SITE.phone, SITE.phone && `tel:${SITE.phone.replace(/\s+/g, "")}`);
   set("address", SITE.address);
 
-  const privacy = $('[data-site="privacy"]');
-  if (privacy && SITE.privacyUrl) {
-    const a = el("a", null, "Read the full privacy policy.");
-    a.href = SITE.privacyUrl;
-    privacy.replaceChildren(a);
+  // Update every match on the page (form notice, contact card and footer), not just the first
+  if (SITE.privacyUrl) {
+    $$('[data-site="privacy"]').forEach((node) => {
+      const a = el("a", null, "Read the full privacy policy.");
+      a.href = SITE.privacyUrl;
+      node.replaceChildren(a);
+    });
   }
 
   let anySocial = false;
   Object.entries(SITE.social).forEach(([name, url]) => {
-    const a = $(`[data-social="${name}"]`);
-    if (a && url) {
+    if (!url) return;
+    $$(`[data-social="${name}"]`).forEach((a) => {
       a.href = url;
       a.hidden = false;
-      anySocial = true;
-    }
+    });
+    anySocial = true;
   });
-  const group = $("[data-social-group]");
-  if (group) group.hidden = !anySocial;
+  $$("[data-social-group]").forEach((group) => (group.hidden = !anySocial));
 }
 
 /* 12. schema.org Event, built from the same data */
