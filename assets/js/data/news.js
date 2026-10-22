@@ -27,7 +27,7 @@ export const NEWS = [
       "The Congress will also publish a communique on AI adoption, ethics and policy, and aims to open new partnership and investment conversations and to recognise outstanding African brands through the awards.",
       "Register to attend, or enquire about exhibiting or sponsoring, through this website.",
     ],
-    image: null, // optional: { src: "/assets/img/news/theme-2026.webp", alt: "Describe the photo", width: 1200, height: 675 }
+    image: { src: "/assets/img/hero-2026.webp", alt: "Describe the photo", width: 1200, height: 675 },
   },
   {
     id: "venue-confirmed",
