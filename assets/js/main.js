@@ -61,6 +61,19 @@ function getNextEvent(now = Date.now()) {
   );
 }
 
+/* 1b. Events that have ended, newest first (feed "Past editions") */
+function getPastEvents(now = Date.now()) {
+  return EVENTS.map((e) => ({ ...e, end: Date.parse(e.endsAt) }))
+    .filter((e) => Number.isFinite(e.end) && e.end <= now)
+    .sort((a, b) => b.end - a.end);
+}
+
+function ordinal(n) {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
 /* 2. Mobile menu */
 function initMenu() {
   const btn = $("[data-menu-toggle]");
@@ -174,10 +187,10 @@ function renderHero(event) {
   }
 
   hero.dataset.state = "upcoming";
-  text("[data-hero-eyebrow]", event.name);
+    text("[data-hero-eyebrow]", event.edition ? `${event.name} · ${ordinal(event.edition)} edition` : event.name);
   text("[data-hero-title]", event.theme);
-  text("[data-hero-date]", event.dateText);
-  text("[data-hero-venue]", `${event.venue}, ${event.city}`);
+  text("[data-hero-date]", event.timeText ? `${event.dateText}, ${event.timeText}` : event.dateText);
+  text("[data-hero-venue]", [event.hall, event.venue, event.city].filter(Boolean).join(", "));
   text("[data-hero-tagline]", event.tagline);
   if (exhibit) exhibit.href = event.exhibitUrl || "/exhibition";
 
