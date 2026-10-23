@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About the Congress | African Brands Congress</title>
   <meta name="description" content="An annual pan-African gathering to learn, network and celebrate African brand excellence.">
-  <link rel="canonical" href="https://africanbrandscongress.com/about">
+  <link rel="canonical" href="https://africanbrandscongress.org/about">
   <meta name="theme-color" content="#00693B">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="African Brands Congress">
   <meta property="og:title" content="About the Congress | African Brands Congress">
   <meta property="og:description" content="An annual pan-African gathering to learn, network and celebrate African brand excellence.">
-  <meta property="og:url" content="https://africanbrandscongress.com/about">
+  <meta property="og:url" content="https://africanbrandscongress.org/about">
   <!-- TODO: add og:image once the branded share image is ready -->
   <meta name="twitter:card" content="summary_large_image">
 
@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="/assets/css/about.css">
   <link rel="modulepreload" href="/assets/js/main.js">
   <link rel="modulepreload" href="/assets/js/about.js">
+  <link rel="modulepreload" href="/assets/js/about-content.js">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -65,16 +66,16 @@
       </div>
     </section>
 
-    <!-- Who ABC is -->
-    <section class="section" aria-labelledby="who-title">
+    <!-- Who ABC is: paragraphs come from events.js (about) -->
+    <section class="section" aria-labelledby="who-title" data-needs-event>
       <div class="container about-split">
         <div>
           <div class="section__head">
             <span class="marker" aria-hidden="true"></span>
             <h2 id="who-title">Who ABC is</h2>
           </div>
-          <p class="lead">The African Brands Congress (ABC) is an annual pan-African event for the people who build, grow and govern brands on the continent. Brand owners, marketers, executives, regulators and investors meet to learn from one another, make connections and celebrate the brands setting the standard.</p>
-          <p class="lead">Organiser background to be announced.</p>
+          <div data-about-text></div>
+          <p class="about-body" data-about-powered hidden></p>
         </div>
         <figure class="about-photo">
           <div class="ph" role="img" aria-label="Photo to be added: Congress audience">
@@ -85,7 +86,7 @@
       </div>
     </section>
 
-    <!-- Mission and objectives -->
+    <!-- Mission and objectives: objectives come from events.js -->
     <section class="section section--alt" aria-labelledby="mission-title">
       <div class="container">
         <div class="section__head">
@@ -95,91 +96,42 @@
         <div class="about-two">
           <div>
             <h3>Our mission</h3>
-            <p class="about-body">To strengthen African brands by connecting the people who build them with the ideas, relationships and recognition they need to grow, at home and on the global stage.</p>
+            <p class="about-body">To strengthen the competitiveness of African brands, celebrate home-grown brand excellence, and create a shared platform where ideas, capital, policy and talent can meet.</p>
           </div>
-          <div>
+          <div data-needs-event>
             <h3>Our objectives</h3>
-            <ul class="about-checks">
-              <li>
-                <span class="about-check" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons-about.svg#check"/></svg></span>
-                <span>Equip brand leaders with practical knowledge on adopting AI responsibly.</span>
-              </li>
-              <li>
-                <span class="about-check" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons-about.svg#check"/></svg></span>
-                <span>Connect brand owners with agencies, regulators and investors.</span>
-              </li>
-              <li>
-                <span class="about-check" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons-about.svg#check"/></svg></span>
-                <span>Showcase and reward African brand excellence.</span>
-              </li>
-            </ul>
+            <ul class="about-checks" data-objectives></ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Benefits of attending -->
-    <section class="section" aria-labelledby="benefits-title">
+    <!-- Benefits of attending: from events.js -->
+    <section class="section" aria-labelledby="benefits-title" data-needs-event>
       <div class="container">
         <div class="section__head">
           <span class="marker" aria-hidden="true"></span>
           <h2 id="benefits-title">Benefits of attending</h2>
         </div>
-        <ul class="grid grid--3">
-          <li class="card" data-reveal>
-            <div class="icon-tile"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons-about.svg#lightbulb"/></svg></div>
-            <h3>Practical AI know-how</h3>
-            <p>Leave with frameworks and examples you can apply to your brand the following week.</p>
-          </li>
-          <li class="card" data-reveal>
-            <div class="icon-tile"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#users"/></svg></div>
-            <h3>Senior-level connections</h3>
-            <p>Meet the CEOs, brand leaders and investors who make decisions in African markets.</p>
-          </li>
-          <li class="card" data-reveal>
-            <div class="icon-tile"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons-about.svg#globe"/></svg></div>
-            <h3>Cross-market perspective</h3>
-            <p>Hear how brands in different African markets are approaching the same challenges.</p>
-          </li>
-          <li class="card" data-reveal>
-            <div class="icon-tile"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#scale"/></svg></div>
-            <h3>Policy and regulatory insight</h3>
-            <p>Understand where regulation of AI and marketing is heading, directly from regulators.</p>
-          </li>
-          <li class="card" data-reveal>
-            <div class="icon-tile"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons-about.svg#award"/></svg></div>
-            <h3>Recognition and visibility</h3>
-            <p>Celebrate the brands setting the standard through the merit awards.</p>
-          </li>
-          <li class="card" data-reveal>
-            <div class="icon-tile"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons-about.svg#handshake"/></svg></div>
-            <h3>Partnerships and deals</h3>
-            <p>Find agencies, suppliers and partners ready to help you grow.</p>
-          </li>
-        </ul>
+        <ul class="grid grid--3" data-benefits></ul>
       </div>
     </section>
 
-    <!-- Expected outcomes -->
-    <section class="section section--alt" aria-labelledby="outcomes-title">
+    <!-- Expected outcomes: from events.js -->
+    <section class="section section--alt" aria-labelledby="outcomes-title" data-needs-event>
       <div class="container">
         <div class="section__head">
           <span class="marker" aria-hidden="true"></span>
-          <h2 id="outcomes-title">Expected outcomes</h2>
-          <p class="lead">What the Congress aims to leave behind once the day is over.</p>
+          <h2 id="outcomes-title">Congress outcomes</h2>
+          <p class="lead">What delegates and stakeholders will leave with at the close of the Congress.</p>
         </div>
         <div class="about-outcomes">
-          <article class="card about-feature" data-reveal>
+          <article class="card about-feature" data-outcome-feature hidden>
             <div class="icon-tile"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons-about.svg#file-text"/></svg></div>
             <h3>A published communique on AI adoption, ethics and policy</h3>
-            <p>The Congress will publish its recommendations for brands, regulators and policymakers on adopting AI responsibly, shared with every attendee after the event.</p>
+            <p data-outcome-feature-text></p>
           </article>
-          <ul class="about-diamonds">
-            <li>Practical frameworks attendees can take back to their teams</li>
-            <li>New partnerships between brands, agencies and investors</li>
-            <li>Recognition of outstanding brands through the merit awards</li>
-            <li>A clearer view of the regulatory landscape for AI in marketing</li>
-          </ul>
+          <ul class="about-diamonds" data-outcomes></ul>
         </div>
       </div>
     </section>
@@ -197,40 +149,15 @@
       </div>
     </section>
 
-    <!-- Side events. PRD: show only if confirmed for 2026. To hide, add the hidden attribute to this section. -->
-    <section class="section section--alt" aria-labelledby="side-title" id="side-events">
+    <!-- Featuring: from events.js (featuring). Hidden automatically when the list is empty. -->
+    <section class="section section--alt" aria-labelledby="side-title" id="side-events" data-needs-event>
       <div class="container">
         <div class="section__head">
           <span class="marker" aria-hidden="true"></span>
-          <h2 id="side-title">Side events</h2>
-          <p class="lead">Focused gatherings that run alongside the Congress.</p>
+          <h2 id="side-title">Featuring</h2>
+          <p class="lead">Forums, showcases and awards featured at the Congress.</p>
         </div>
-        <ul class="grid grid--2">
-          <li class="card about-event about-event--green" data-reveal>
-            <svg class="about-mark" viewBox="0 0 56 32" aria-hidden="true" focusable="false"><path d="M3 29 20 4l17 25Z"/><circle cx="43" cy="23" r="6"/></svg>
-            <h3>Social Media Roundtable</h3>
-            <p>A focused conversation on social platforms, creators and community building for brands.</p>
-            <p class="about-tba">Date and format to be announced</p>
-          </li>
-          <li class="card about-event about-event--yellow" data-reveal>
-            <svg class="about-mark" viewBox="0 0 56 32" aria-hidden="true" focusable="false"><path d="M3 29 20 4l17 25Z"/><circle cx="43" cy="23" r="6"/></svg>
-            <h3>The Big Design Show</h3>
-            <p>A showcase of the design thinking and visual identity work shaping African brands.</p>
-            <p class="about-tba">Date and format to be announced</p>
-          </li>
-          <li class="card about-event about-event--red" data-reveal>
-            <svg class="about-mark" viewBox="0 0 56 32" aria-hidden="true" focusable="false"><path d="M3 29 20 4l17 25Z"/><circle cx="43" cy="23" r="6"/></svg>
-            <h3>ExMaS Experiential Marketing Summit</h3>
-            <p>Live brand experiences, activations and events: what works and why.</p>
-            <p class="about-tba">Date and format to be announced</p>
-          </li>
-          <li class="card about-event about-event--deep" data-reveal>
-            <svg class="about-mark" viewBox="0 0 56 32" aria-hidden="true" focusable="false"><path d="M3 29 20 4l17 25Z"/><circle cx="43" cy="23" r="6"/></svg>
-            <h3>African Packaging Expo</h3>
-            <p>Packaging innovation, materials and shelf impact for African products.</p>
-            <p class="about-tba">Date and format to be announced</p>
-          </li>
-        </ul>
+        <ul class="grid grid--2" data-featuring></ul>
       </div>
     </section>
 
@@ -319,5 +246,6 @@
 
   <script type="module" src="/assets/js/main.js"></script>
   <script type="module" src="/assets/js/about.js"></script>
+  <script type="module" src="/assets/js/about-content.js"></script>
 </body>
 </html>
