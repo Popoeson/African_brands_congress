@@ -142,9 +142,20 @@ function renderFeaturing(event) {
   if (!event.featuring?.length) return hide(list.closest("section"));
 
   list.replaceChildren(
-    ...event.featuring.map((name, i) => {
-      const li = el("li", `card about-event about-event--${EVENT_COLOURS[i % EVENT_COLOURS.length]}`);
-      li.append(mark(), el("h3", null, name));
+    ...event.featuring.map((item) => {
+      const li = el("li", "logo-box");
+      if (item.logo?.src) {
+        const img = new Image();
+        img.src = item.logo.src;
+        img.alt = item.name;
+        if (item.logo.width) img.width = item.logo.width;
+        if (item.logo.height) img.height = item.logo.height;
+        img.loading = "lazy";
+        img.decoding = "async";
+        li.append(img);
+      } else {
+        li.textContent = item.name;
+      }
       return li;
     })
   );
