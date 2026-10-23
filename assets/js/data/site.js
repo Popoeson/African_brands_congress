@@ -4,9 +4,9 @@
  */
 
 export const SITE = {
-  email: null, // e.g. "info@example.com"
-  phone: null, // e.g. "+234 000 000 0000"
-  address: null, // office address
+    email: "info@theafricanbrands.net",
+  phone: "+234 903 0888 871", // second line on the flyer: +234 813 1467 003
+  address: "Co-ordination Office: The African Brands Media Ltd., Plot 299, Ikorodu Road, Maryland, Lagos, Nigeria",
   social: {
     // Icons stay hidden until a URL is set.
     linkedin: null,
@@ -21,7 +21,7 @@ export const SITE = {
  * image: { src, alt, width, height } or null (4:3, compressed, under 200 KB).
  */
 export const PAST_EDITIONS = [
-  { year: 2021, image: { src: "/assets/img/ABC2021.webp", alt: "2022 Event", width: 800, height: 450 },
+    { year: 2021, image: { src: "/assets/img/ABC2021.webp", alt: "2021 Event", width: 800, height: 450 },
 
  },
   { year: 2022, image: { src: "/assets/img/ABC2022.webp", alt: "2022 Event", width: 800, height: 450 }, 
