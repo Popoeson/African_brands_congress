@@ -132,12 +132,18 @@ export const EVENTS = [
         // logo: replace null with e.g. { src: "/assets/img/featuring/ceos-forum.webp", width: 400, height: 300 }
     // Until a logo is set, the tile shows the name as text.
     featuring: [
-      { name: "ABC Brand Showcase & Exhibition", logo: null }, // abc-showcase-exhibition.webp
-      { name: "Africa Brands CEOs Forum", logo: null }, // ceos-forum.webp
-      { name: "Africa Sustainable Brands Summit", logo: null }, // sustainable-brands-summit.webp
-      { name: "African Brand Innovators Forum", logo: null }, // brand-innovators-forum.webp
-      { name: "Africa Most Admired Brands Awards", logo: null }, // most-admired-brands-awards.webp
-      { name: "Africa Brands TV Online (special featuring)", logo: null }, // africa-brands-tv.webp
+      { name: "ABC Brand Showcase & Exhibition", logo: { src: "/assets/img/featuring/brand-showcase.webp", width: 400, height: 300 }
+ }, // abc-showcase-exhibition.webp
+      { name: "Africa Brands CEOs Forum", logo: { src: "/assets/img/featuring/ceo+-forum.webp", width: 400, height: 300 } 
+}, // ceos-forum.webp
+      { name: "Africa Sustainable Brands Summit", logo: { src: "/assets/img/featuring/brand-summit.webp", width: 400, height: 300 }
+}, // sustainable-brands-summit.webp
+      { name: "African Brand Innovators Forum", logo: { src: "/assets/img/featuring/innovation-forum.webp", width: 400, height: 300 } 
+}, // brand-innovators-forum.webp
+      { name: "Africa Most Admired Brands Awards", logo: { src: "/assets/img/featuring/brands-award.webp", width: 400, height: 300 }
+ }, // most-admired-brands-awards.webp
+      { name: "Africa Brands TV Online (special featuring)", logo: brand-tv
+ }, // africa-brands-tv.webp
     ],
 
     poweredBy: "The African Brands",
