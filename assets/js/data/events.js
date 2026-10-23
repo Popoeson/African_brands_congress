@@ -142,9 +142,14 @@ export const EVENTS = [
     poweredBy: "The African Brands",
     supportedBy: ["The African Brands Academy"], // TODO: IBMA full name to be confirmed
 
-    // Not yet supplied
-    programme: [], // "To be announced"
-    speakers: [], // "To be announced"
+        // From the flyer: "plenary sessions, masterclasses, panel discussions, an exhibition floor and structured networking"
+    formats: ["Plenary sessions", "Masterclasses", "Panel discussions", "Exhibition floor", "Structured networking"],
+
+    // Not yet supplied. While empty, the Programme page shows "To be announced".
+    // programme item: { time: "10:00 AM", title: "Opening", type: "Plenary", speakers: ["Name"] }
+    programme: [],
+    // speaker: { name: "Name", role: "Title", organisation: "Company", photo: { src: "/assets/img/speakers/name.webp", alt: "Name", width: 600, height: 600 } }
+    speakers: [],
   },
 ];
 
