@@ -131,19 +131,13 @@ export const EVENTS = [
 
         // logo: replace null with e.g. { src: "/assets/img/featuring/ceos-forum.webp", width: 400, height: 300 }
     // Until a logo is set, the tile shows the name as text.
-    featuring: [
-      { name: "ABC Brand Showcase & Exhibition", logo: { src: "/assets/img/featuring/brand-showcase.webp", width: 400, height: 300 }
- }, // abc-showcase-exhibition.webp
-      { name: "Africa Brands CEOs Forum", logo: { src: "/assets/img/featuring/ceo+-forum.webp", width: 400, height: 300 } 
-}, // ceos-forum.webp
-      { name: "Africa Sustainable Brands Summit", logo: { src: "/assets/img/featuring/brand-summit.webp", width: 400, height: 300 }
-}, // sustainable-brands-summit.webp
-      { name: "African Brand Innovators Forum", logo: { src: "/assets/img/featuring/innovation-forum.webp", width: 400, height: 300 } 
-}, // brand-innovators-forum.webp
-      { name: "Africa Most Admired Brands Awards", logo: { src: "/assets/img/featuring/brands-award.webp", width: 400, height: 300 }
- }, // most-admired-brands-awards.webp
-      { name: "Africa Brands TV Online (special featuring)", logo: brand-tv
- }, // africa-brands-tv.webp
+        featuring: [
+      { name: "ABC Brand Showcase & Exhibition", logo: { src: "/assets/img/featuring/brand-showcase.webp", width: 400, height: 300 } },
+      { name: "Africa Brands CEOs Forum", logo: { src: "/assets/img/featuring/ceos-forum.webp", width: 400, height: 300 } },
+      { name: "Africa Sustainable Brands Summit", logo: { src: "/assets/img/featuring/brand-summit.webp", width: 400, height: 300 } },
+      { name: "African Brand Innovators Forum", logo: { src: "/assets/img/featuring/innovation-forum.webp", width: 400, height: 300 } },
+      { name: "Africa Most Admired Brands Awards", logo: { src: "/assets/img/featuring/brands-award.webp", width: 400, height: 300 } },
+      { name: "Africa Brands TV Online (special featuring)", logo: { src: "/assets/img/featuring/brand-tv.webp", width: 400, height: 300 } },
     ],
 
     poweredBy: "The African Brands",
