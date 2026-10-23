@@ -422,8 +422,8 @@ function injectEventSchema(event) {
       name: event.venue,
       address: { "@type": "PostalAddress", addressLocality: event.city, addressCountry: event.countryCode },
     },
-    organizer: { "@type": "Organization", name: "African Brands Congress", url: "https://africanbrandscongress.com" },
-    url: "https://africanbrandscongress.com/",
+        organizer: { "@type": "Organization", name: "African Brands Congress", url: "https://africanbrandscongress.org" },
+    url: "https://africanbrandscongress.org/",
   };
   const script = document.createElement("script");
   script.type = "application/ld+json";
