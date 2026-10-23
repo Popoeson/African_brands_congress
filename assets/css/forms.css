@@ -1,0 +1,29 @@
+/* Shared inline form errors. Used by forms.js on every page with a form. */
+
+.form-error {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--red-action);
+}
+
+/* An icon as well as colour, so errors never rely on colour alone */
+.form-error::before {
+  content: "!";
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  background: var(--red-action);
+  border-radius: 50%;
+}
+
+button[type="submit"]:disabled { opacity: 0.7; cursor: progress; }
