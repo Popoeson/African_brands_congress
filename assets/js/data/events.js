@@ -1,4 +1,4 @@
-/**
+l/**
  * ABC: event data.
  * This is the ONLY file to edit to change the featured event.
  *
@@ -129,14 +129,15 @@ export const EVENTS = [
       "A foundation of insight and relationships carried forward into subsequent editions of the African Brands Congress, reinforcing its role as the continent's leading brand leadership platform.",
     ],
 
-    // Featured at the Congress (from the flyer). Awards name: client to confirm.
+        // logo: replace null with e.g. { src: "/assets/img/featuring/ceos-forum.webp", width: 400, height: 300 }
+    // Until a logo is set, the tile shows the name as text.
     featuring: [
-      "ABC Brand Showcase & Exhibition",
-      "Africa Brands CEOs Forum",
-      "Africa Sustainable Brands Summit",
-      "African Brand Innovators Forum",
-      "Africa Most Admired Brands Awards",
-      "Africa Brands TV Online (special featuring)",
+      { name: "ABC Brand Showcase & Exhibition", logo: null }, // abc-showcase-exhibition.webp
+      { name: "Africa Brands CEOs Forum", logo: null }, // ceos-forum.webp
+      { name: "Africa Sustainable Brands Summit", logo: null }, // sustainable-brands-summit.webp
+      { name: "African Brand Innovators Forum", logo: null }, // brand-innovators-forum.webp
+      { name: "Africa Most Admired Brands Awards", logo: null }, // most-admired-brands-awards.webp
+      { name: "Africa Brands TV Online (special featuring)", logo: null }, // africa-brands-tv.webp
     ],
 
     poweredBy: "The African Brands",
