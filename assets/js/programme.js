@@ -193,16 +193,22 @@ function renderSpeakers(event) {
   );
 }
 
+const CAT_COLOURS = ["green", "yellow", "red", "deep"];
+
 function renderCategories(event) {
   const list = $("[data-categories]");
   if (!list) return;
   if (!event.categories?.length) return hide(list.closest("section"));
 
   list.replaceChildren(
-    ...event.categories.map((c) => {
-      const li = el("li");
-      li.append(el("strong", null, c.name));
-      if (c.text) li.append(el("span", null, cap(c.text)));
+    ...event.categories.map((c, i) => {
+      const li = el("li", `prog-cat prog-cat--${CAT_COLOURS[i % CAT_COLOURS.length]}`);
+      const num = el("span", "prog-cat__num", String(i + 1).padStart(2, "0"));
+      num.setAttribute("aria-hidden", "true");
+      const body = el("div", "prog-cat__body");
+      body.append(el("h3", null, c.name));
+      if (c.text) body.append(el("p", null, cap(c.text)));
+      li.append(num, body);
       return li;
     })
   );
