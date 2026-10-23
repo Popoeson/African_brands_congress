@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/register.css">
+  <link rel="stylesheet" href="/assets/css/forms.css">
   <link rel="modulepreload" href="/assets/js/main.js">
   <link rel="modulepreload" href="/assets/js/register.js">
   <link rel="modulepreload" href="/assets/js/data/register.js">
@@ -102,7 +103,7 @@
           <p class="reg-fees">Registration fees and ticket types: to be confirmed.</p>
         </div>
 
-        <!-- Posts to /api/register once forms.js is added -->
+        <!-- Posts to /api/register -->
         <form class="reg-form card" method="post" action="/api/register" data-form="register" novalidate>
           <h2>Your details</h2>
           <p class="reg-note">Fields marked <span class="reg-req" aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
@@ -243,6 +244,6 @@
 
   <script type="module" src="/assets/js/main.js"></script>
   <script type="module" src="/assets/js/register.js"></script>
-  <!-- TODO: add <script type="module" src="/assets/js/forms.js"></script> when forms.js is built -->
+  <script type="module" src="/assets/js/forms.js"></script>
 </body>
 </html>
