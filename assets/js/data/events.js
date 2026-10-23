@@ -1,4 +1,4 @@
-l/**
+/**
  * ABC: event data.
  * This is the ONLY file to edit to change the featured event.
  *
