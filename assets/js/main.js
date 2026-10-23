@@ -277,13 +277,18 @@ function renderEditions() {
   if (!list) return;
   const section = list.closest("section");
 
-  if (!PAST_EDITIONS.length) {
+    // Ended events from events.js first, then older editions from site.js (no duplicate years)
+  const ended = getPastEvents().map((e) => ({ year: e.startsAt.slice(0, 4), image: e.cover || null }));
+  const seen = new Set(ended.map((e) => e.year));
+  const editions = [...ended, ...PAST_EDITIONS.filter((e) => !seen.has(String(e.year)))];
+
+  if (!editions.length) {
     if (section) section.hidden = true;
     return;
   }
 
   list.replaceChildren(
-    ...PAST_EDITIONS.map((e) => {
+    ...editions.map((e) => {
       const li = el("li", "edition");
       const badge = el("span", "edition__badge", `ABC ${e.year}`);
       const media = e.image
