@@ -9,6 +9,16 @@
 .about-split .lead + .lead { margin-top: var(--s-4); }
 .about-photo { margin: 0; }
 .about-photo .ph { aspect-ratio: 5 / 4; width: 100%; }
+.about-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
 
 /* Mission and objectives */
 .about-two { display: grid; gap: var(--s-10); }
