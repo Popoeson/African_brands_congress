@@ -413,8 +413,8 @@ function injectEventSchema(event) {
     "@type": "Event",
     name: event.name,
     description: event.theme,
-    startDate: event.startsAt.slice(0, 10),
-    endDate: event.endsAt.slice(0, 10),
+    startDate: event.startsAt,
+    endDate: event.endsAt,
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: {
