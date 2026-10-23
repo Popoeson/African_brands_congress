@@ -133,7 +133,7 @@ export const EVENTS = [
     // Until a logo is set, the tile shows the name as text.
         featuring: [
       { name: "ABC Brand Showcase & Exhibition", logo: { src: "/assets/img/brand-showcase.webp", width: 400, height: 300 } },
-      { name: "Africa Brands CEOs Forum", logo: { src: "/assets/img/ceos-forum.webp", width: 400, height: 300 } },
+      { name: "Africa Brands CEOs Forum", logo: { src: "/assets/img/ceo+-forum.webp", width: 400, height: 300 } },
       { name: "Africa Sustainable Brands Summit", logo: { src: "/assets/img/brand-summit.webp", width: 400, height: 300 } },
       { name: "African Brand Innovators Forum", logo: { src: "/assets/img/innovation-forum.webp", width: 400, height: 300 } },
       { name: "Africa Most Admired Brands Awards", logo: { src: "/assets/img/brands-award.webp", width: 400, height: 300 } },
