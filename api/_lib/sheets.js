@@ -5,6 +5,29 @@ let cached = { token: null, expires: 0 };
 
 const b64url = (input) => Buffer.from(input).toString("base64url");
 
+/** Accepts the key however it was pasted: with quotes, a trailing comma, literal \n, or the whole JSON file. */
+function normaliseKey(raw) {
+  let key = String(raw).trim();
+
+  // The whole service-account JSON was pasted by mistake
+  if (key.startsWith("{")) {
+    try {
+      key = JSON.parse(key).private_key || key;
+    } catch {
+      /* fall through to the check below */
+    }
+  }
+
+  key = key.replace(/,$/, "").trim(); // trailing comma from the JSON file
+  key = key.replace(/^["']+|["']+$/g, ""); // wrapping quotes
+  key = key.replace(/\\r/g, "").replace(/\\n/g, "\n").replace(/\r/g, ""); // literal \n to real line breaks
+
+  if (!key.includes("BEGIN PRIVATE KEY") || !key.includes("END PRIVATE KEY")) {
+    throw new Error("GOOGLE_PRIVATE_KEY is not a complete private key");
+  }
+  return `${key.trim()}\n`;
+}
+
 async function getToken() {
   if (cached.token && Date.now() < cached.expires - 60000) return cached.token;
 
@@ -25,7 +48,7 @@ async function getToken() {
   );
   const signer = createSign("RSA-SHA256");
   signer.update(`${header}.${claims}`);
-  const signature = signer.sign(rawKey.replace(/\\n/g, "\n"), "base64url");
+    const signature = signer.sign(normaliseKey(rawKey), "base64url");
 
   const res = await fetch("https://oauth2.googleapis.com/token", {
     method: "POST",
