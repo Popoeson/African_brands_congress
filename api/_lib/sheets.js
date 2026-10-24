@@ -59,8 +59,16 @@ async function getToken() {
     }),
     signal: AbortSignal.timeout(TIMEOUT_MS),
   });
-  if (!res.ok) throw new Error(`Google token request responded ${res.status}`);
-
+    if (!res.ok) {
+    let detail = "";
+    try {
+      const err = await res.json();
+      detail = ` (${err.error || "unknown"}: ${err.error_description || "no description"})`;
+    } catch {
+      /* body was not JSON */
+    }
+    throw new Error(`Google token request responded ${res.status}${detail}`);
+  }
   const data = await res.json();
   cached = { token: data.access_token, expires: Date.now() + (data.expires_in || 3600) * 1000 };
   return cached.token;
