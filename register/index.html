@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Register to attend | African Brands Congress</title>
   <meta name="description" content="Register to attend African Brands Congress 2026 at Lagos Oriental Hotel, Lagos.">
-  <link rel="canonical" href="https://africanbrandscongress.com/register">
+  <link rel="canonical" href="https://africanbrandscongress.org/register">
   <meta name="theme-color" content="#00693B">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="African Brands Congress">
   <meta property="og:title" content="Register to attend | African Brands Congress">
   <meta property="og:description" content="Register to attend African Brands Congress 2026 in Lagos.">
-  <meta property="og:url" content="https://africanbrandscongress.com/register">
+  <meta property="og:url" content="https://africanbrandscongress.org/register">
   <!-- TODO: add og:image once the branded share image is ready -->
   <meta name="twitter:card" content="summary_large_image">
 
@@ -42,8 +42,8 @@
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/programme">Programmes and Speakers</a></li>
-          <li><a href="/exhibition">Exhibition and Sponsors</a></li>
-        <!--  <li><a href="/awards">Awards</a></li> -->
+          <!-- <li><a href="/exhibition">Exhibition and Sponsors</a></li> -->
+          <!-- <li><a href="/awards">Awards</a></li> -->
           <li><a href="/news-contact">News and Contact</a></li>
           <li class="nav__mobile-only"><a href="/register" data-register-cta-short>Register</a></li>
         </ul>
@@ -59,7 +59,7 @@
 
   <main id="main">
 
-    <!-- Title band: date and venue are filled by /assets/js/register.js from events.js -->
+    <!-- Title band: theme, date and venue are filled by /assets/js/register.js from events.js -->
     <section class="title-band has-bunting" aria-labelledby="reg-title">
       <div class="container">
         <h1 id="reg-title" data-reg-title>Register to attend</h1>
@@ -75,31 +75,10 @@
     <section class="section section--alt" aria-labelledby="reg-get-title">
       <div class="container reg-layout">
 
-        <div class="reg-info">
+        <!-- Benefits are rendered from events.js (benefits). Hidden when no event is upcoming. -->
+        <div class="reg-info" data-reg-info>
           <h2 id="reg-get-title">What attendees get</h2>
-          <!-- Client to approve this list -->
-          <ul class="reg-checks">
-            <li>
-              <span class="reg-check" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons-about.svg#check"/></svg></span>
-              <span>Access to all plenary, panel and masterclass sessions</span>
-            </li>
-            <li>
-              <span class="reg-check" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons-about.svg#check"/></svg></span>
-              <span>Structured networking with senior brand leaders</span>
-            </li>
-            <li>
-              <span class="reg-check" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons-about.svg#check"/></svg></span>
-              <span>Entry to the exhibition floor</span>
-            </li>
-            <li>
-              <span class="reg-check" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons-about.svg#check"/></svg></span>
-              <span>A copy of the post-Congress communique on AI adoption, ethics and policy</span>
-            </li>
-            <li>
-              <span class="reg-check" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons-about.svg#check"/></svg></span>
-              <span>Additional inclusions to be confirmed</span>
-            </li>
-          </ul>
+          <ul class="reg-checks" data-reg-benefits></ul>
           <p class="reg-fees">Registration fees and ticket types: to be confirmed.</p>
         </div>
 
@@ -193,8 +172,8 @@
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/programme">Programmes and Speakers</a></li>
-            <li><a href="/exhibition">Exhibition and Sponsors</a></li>
-            <li><a href="/awards">Awards</a></li>
+            <!-- <li><a href="/exhibition">Exhibition and Sponsors</a></li> -->
+            <!-- <li><a href="/awards">Awards</a></li> -->
             <li><a href="/news-contact">News and Contact</a></li>
             <li><a href="/register">Register</a></li>
           </ul>
