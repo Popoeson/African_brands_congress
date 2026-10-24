@@ -137,11 +137,53 @@
   color: var(--slate);
 }
 
+/* Featuring: logo cards */
+.about-feats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-6);
+  grid-template-columns: 1fr;
+}
+.about-feat {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+}
+.about-feat__media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  padding: var(--s-5);
+  background: #fff;
+  border-bottom: var(--border);
+}
+.about-feat__media img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.about-feat__media--empty { background: var(--offwhite); color: var(--slate); font-size: 14px; font-weight: 600; }
+.about-feat h3 {
+  margin: 0;
+  padding: var(--s-4) var(--s-5);
+  font-size: 18px;
+  line-height: 1.25;
+}
+
 @media (min-width: 768px) {
   .about-two { grid-template-columns: 1fr 1fr; gap: var(--s-12); }
+  .about-feats { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 1100px) {
   .about-split { grid-template-columns: 1fr 1fr; gap: var(--s-12); align-items: center; }
   .about-outcomes { grid-template-columns: 1fr 1fr; gap: var(--s-12); align-items: start; }
+  .about-feats { grid-template-columns: repeat(3, 1fr); }
 }
