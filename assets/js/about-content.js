@@ -141,21 +141,25 @@ function renderFeaturing(event) {
   if (!list) return;
   if (!event.featuring?.length) return hide(list.closest("section"));
 
-  list.replaceChildren(
+    list.replaceChildren(
     ...event.featuring.map((item) => {
-      const li = el("li", "logo-box");
+      const li = el("li", "card about-feat");
+      const media = el("div", "about-feat__media");
       if (item.logo?.src) {
         const img = new Image();
         img.src = item.logo.src;
-        img.alt = item.name;
+        img.alt = ""; // the name below describes it
         if (item.logo.width) img.width = item.logo.width;
         if (item.logo.height) img.height = item.logo.height;
         img.loading = "lazy";
         img.decoding = "async";
-        li.append(img);
+        media.append(img);
       } else {
-        li.textContent = item.name;
+        media.classList.add("about-feat__media--empty");
+        media.setAttribute("aria-hidden", "true");
+        media.append(el("span", null, "Logo to be added"));
       }
+      li.append(media, el("h3", null, item.name));
       return li;
     })
   );
