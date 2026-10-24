@@ -2,25 +2,24 @@
  * ABC: options for the Register form dropdowns.
  * Edit here to change the choices. Nothing else needs to change.
  *
- * SECTOR_OPTIONS reuses the exhibitor sector list from the Exhibition page,
- * because the Register mockup does not show its list. Client to confirm.
+ * SECTOR_OPTIONS uses the brand categories from the 2026 event flyer,
+ * plus "Other". Client to confirm.
  */
 
 export const SECTOR_OPTIONS = [
-  "FMCG",
-  "Banking and financial services",
-  "Telecommunications",
-  "Technology and AI",
-  "Media and advertising",
-  "Creative and marketing agencies",
-  "Packaging and print",
-  "Retail and e-commerce",
-  "Manufacturing",
-  "Hospitality and tourism",
-  "Healthcare and pharmaceuticals",
-  "Energy",
-  "Logistics",
-  "Public sector and regulators",
+  "Fast-Moving Consumer Goods (FMCG)",
+  "Financial Services",
+  "Technology & Telecommunications",
+  "Fashion, Beauty & Lifestyle",
+  "Media, Entertainment & Creative Industries",
+  "Agricultural & Agribusiness",
+  "Retail & E-commerce",
+  "Hospitality, Travel & Tourism",
+  "Automotive & Mobility",
+  "Public Sector & Nation Brands",
+  "Professional Services & Agencies",
+  "Education & Non-Profit Organisations",
+  "Other",
 ];
 
 /** Taken from the Register mockup. */
