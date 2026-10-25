@@ -383,7 +383,7 @@ textarea { min-height: 140px; resize: vertical; }
   color: var(--ink);
   text-decoration: none;
 }
-.brand img { width: 44px; height: 44px; }
+.brand img { height: 44px; width: auto; }
 .brand__name {
   max-width: 9rem;
   font: 700 clamp(0.95rem, 4.3vw, 1.125rem) / 1.2 var(--font-head);
