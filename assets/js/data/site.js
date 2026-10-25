@@ -13,7 +13,7 @@ export const SITE = {
     twitter: null,
     instagram: null,
   },
-  privacyUrl: null, // e.g. "/privacy"
+    privacyUrl: "/privacy",
 };
 
 /**
