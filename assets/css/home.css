@@ -18,6 +18,8 @@
 .hero__badge::before { content: ""; width: 10px; height: 10px; background: var(--ink); border-radius: 50%; }
 
 .hero h1 { margin-bottom: var(--s-3); }
+.hero[data-state="upcoming"] h1 { min-height: 3.6em; } /* room for a three-line headline */
+.hero .eyebrow { min-height: 1.3em; }
 .hero__facts { display: grid; gap: var(--s-2); margin-bottom: var(--s-4); font-size: 1.125rem; color: var(--slate); }
 .hero__facts li { display: flex; align-items: center; gap: 12px; }
 .hero__facts .icon { color: var(--green); }
@@ -28,6 +30,8 @@
 
 /* Countdown */
 .countdown { min-height: 88px; }
+/* Space stays reserved while the script is still loading; invisible until it fills in */
+.hero[data-state="upcoming"] .countdown[hidden] { display: block !important; visibility: hidden; }
 .countdown__tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-1); }
 .countdown__tile {
   padding: 10px 4px;
