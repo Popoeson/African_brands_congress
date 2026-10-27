@@ -3,6 +3,7 @@
    Sections marked data-needs-event are hidden when there is no event data. */
 
 import { EVENTS } from "/assets/js/data/events.js";
+import { ORGANIZER } from "/assets/js/data/site.js";
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -164,6 +165,54 @@ function renderFeaturing(event) {
     })
   );
 }
+
+/* About the organizer: from site.js (ORGANIZER). The section stays hidden until data exists. */
+function renderOrganizer() {
+  const section = $("[data-organizer]");
+  if (!section || !ORGANIZER?.about?.length) return;
+
+  const heading = $("[data-organizer-heading]", section);
+  if (heading && ORGANIZER.heading) heading.textContent = ORGANIZER.heading;
+
+  $("[data-organizer-text]", section).replaceChildren(
+    ...ORGANIZER.about.map((p) => el("p", "about-body", p))
+  );
+
+  const focus = $("[data-organizer-focus]", section);
+  if (ORGANIZER.focus?.length) {
+    focus.replaceChildren(
+      ...ORGANIZER.focus.map((text) => {
+        const li = el("li");
+        const check = el("span", "about-check");
+        check.setAttribute("aria-hidden", "true");
+        check.append(icon("about", "check"));
+        li.append(check, el("span", null, text));
+        return li;
+      })
+    );
+  } else {
+    focus.remove();
+  }
+
+  [["vision", ORGANIZER.vision], ["mission", ORGANIZER.mission]].forEach(([key, text]) => {
+    const card = $(`[data-organizer-${key}]`, section);
+    if (!card) return;
+    if (text) $("p", card).textContent = text;
+    else card.remove();
+  });
+
+  const values = $("[data-organizer-values]", section);
+  const valuesCard = $("[data-organizer-values-card]", section);
+  if (values && ORGANIZER.values?.length) {
+    values.replaceChildren(...ORGANIZER.values.map((v) => el("li", "chip", v)));
+  } else if (valuesCard) {
+    valuesCard.remove();
+  }
+
+  section.hidden = false;
+}
+
+renderOrganizer();
 
 const event = pickEvent();
 
