@@ -36,7 +36,7 @@ export const EVENTS = [
 
     heroImage: {
       src: "/assets/img/hero-2026.webp",
-      alt: "Describe the photo", // TODO: replace with a real description of the photo
+      alt: "Official flyer for the 11th African Brands Congress, Monday 30 November 2026, Lagos Oriental Hotel, Victoria Island, Lagos",
       width: 1200,
       height: 900,
     },
