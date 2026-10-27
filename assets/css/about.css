@@ -187,3 +187,8 @@
   .about-outcomes { grid-template-columns: 1fr 1fr; gap: var(--s-12); align-items: start; }
   .about-feats { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* About the organizer */
+.about-org-cards { display: grid; gap: var(--s-4); align-content: start; }
+.about-org-cards h3 { margin: 0 0 var(--s-1); }
+.about-org-cards .chips { margin-top: var(--s-2); }
