@@ -13,12 +13,15 @@
   <meta property="og:title" content="About the Congress | African Brands Congress">
   <meta property="og:description" content="An annual pan-African gathering to learn, network and celebrate African brand excellence.">
   <meta property="og:url" content="https://africanbrandscongress.org/about">
-  <!-- TODO: add og:image once the branded share image is ready -->
+  <meta property="og:image" content="https://africanbrandscongress.org/assets/img/ABC-og.webp">
+  <meta property="og:image:alt" content="African Brands Congress">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://africanbrandscongress.org/assets/img/ABC-og.webp">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap"></noscript>
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/about.css">
   <link rel="modulepreload" href="/assets/js/main.js">
@@ -32,7 +35,7 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="/" aria-label="African Brands Congress, home">
-                                                <img src="/assets/img/abc-logo1.webp" alt="" width="300" height="182">
+        <img src="/assets/img/abc-logo1.webp" alt="" width="300" height="182">
       </a>
 
       <nav id="site-nav" class="nav" aria-label="Main">
@@ -41,7 +44,8 @@
           <li><a href="/about">About</a></li>
           <li><a href="/programme">Programmes and Speakers</a></li>
           <li><a href="/exhibition">Exhibition and Sponsors</a></li>
-       <!--   <li><a href="/awards">Awards</a></li> -->
+          <li><a href="/awards">Awards</a></li>
+          <li><a href="/gallery">Gallery</a></li>
           <li><a href="/news-contact">News and Contact</a></li>
           <li class="nav__mobile-only"><a href="/register" data-register-cta-short>Register</a></li>
         </ul>
@@ -76,7 +80,7 @@
           <div data-about-text></div>
           <p class="about-body" data-about-powered hidden></p>
         </div>
-                <figure class="about-photo">
+        <figure class="about-photo">
           <img
             src="/assets/img/about-audience.webp"
             alt="Delegates seated at tables during a past African Brands Congress"
@@ -139,7 +143,8 @@
       </div>
     </section>
 
-    <!-- Our journey: rendered by /assets/js/about.js from site.js (TIMELINE) and events.js 
+    <!-- Our journey: hidden until the client confirms the years, themes and venues.
+         Rendered by /assets/js/about.js from site.js (TIMELINE) and events.js.
     <section class="section" aria-labelledby="journey-title">
       <div class="container">
         <div class="section__head">
@@ -153,14 +158,45 @@
     </section> -->
 
     <!-- Featuring: from events.js (featuring). Hidden automatically when the list is empty. -->
-    <section class="section section--alt" aria-labelledby="side-title" id="side-events" data-needs-event>
+    <section class="section" aria-labelledby="side-title" id="side-events" data-needs-event>
       <div class="container">
         <div class="section__head">
           <span class="marker" aria-hidden="true"></span>
           <h2 id="side-title">Featuring</h2>
           <p class="lead">Forums, showcases and awards featured at the Congress.</p>
         </div>
-                <ul class="about-feats" data-featuring></ul>
+        <ul class="about-feats" data-featuring></ul>
+      </div>
+    </section>
+
+    <!-- About the organizer: rendered from site.js (ORGANIZER). Stays hidden until data exists. -->
+    <section class="section section--alt" aria-labelledby="organizer-title" data-organizer hidden>
+      <div class="container">
+        <div class="section__head">
+          <span class="marker" aria-hidden="true"></span>
+          <h2 id="organizer-title">About the organizer</h2>
+        </div>
+        <div class="about-two">
+          <div>
+            <h3 data-organizer-heading>Who are we?</h3>
+            <div data-organizer-text></div>
+            <ul class="about-checks" data-organizer-focus></ul>
+          </div>
+          <div class="about-org-cards">
+            <article class="card" data-organizer-vision>
+              <h3>Vision</h3>
+              <p></p>
+            </article>
+            <article class="card" data-organizer-mission>
+              <h3>Mission</h3>
+              <p></p>
+            </article>
+            <article class="card" data-organizer-values-card>
+              <h3>Core values</h3>
+              <ul class="chips" data-organizer-values></ul>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -184,7 +220,7 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <a class="brand" href="/" aria-label="African Brands Congress, home">
-                                    <img src="/assets/img/abc-logo2.webp" alt="" width="300" height="182">
+            <img src="/assets/img/ABC-logo2.webp" alt="" width="300" height="182">
           </a>
           <p>The annual pan-African gathering for brand owners, marketers, executives, regulators and investors.</p>
           <p class="footer__tagline">Learn // Network // Celebrate</p>
@@ -198,10 +234,11 @@
             <li><a href="/about">About</a></li>
             <li><a href="/programme">Programmes and Speakers</a></li>
             <li><a href="/exhibition">Exhibition and Sponsors</a></li>
-          <!--  <li><a href="/awards">Awards</a></li> -->
+            <li><a href="/awards">Awards</a></li>
+            <li><a href="/gallery">Gallery</a></li>
             <li><a href="/news-contact">News and Contact</a></li>
             <li><a href="/register">Register</a></li>
-                      <li><a href="/privacy">Privacy policy</a></li>
+            <li><a href="/privacy">Privacy policy</a></li>
           </ul>
         </nav>
 
