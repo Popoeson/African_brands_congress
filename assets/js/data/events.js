@@ -37,8 +37,8 @@ export const EVENTS = [
     heroImage: {
       src: "/assets/img/hero-2026.webp",
       alt: "Official flyer for the 11th African Brands Congress, Monday 30 November 2026, Lagos Oriental Hotel, Victoria Island, Lagos",
-      width: 1200,
-      height: 900,
+      width: 900,
+      height: 675,
     },
 
     // Shown in "Past editions" once this event has ended. Example:
