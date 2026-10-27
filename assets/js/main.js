@@ -190,7 +190,7 @@ function renderHero(event) {
     text("[data-hero-eyebrow]", event.edition ? `${event.name} · ${ordinal(event.edition)} edition` : event.name);
   text("[data-hero-title]", event.theme);
   text("[data-hero-date]", event.timeText ? `${event.dateText}, ${event.timeText}` : event.dateText);
-  text("[data-hero-venue]", [event.hall, event.venue, event.city].filter(Boolean).join(", "));
+  text("[data-hero-venue]", [event.hall, event.venue, event.area, event.city].filter(Boolean).join(", "));
   text("[data-hero-tagline]", event.tagline);
   if (exhibit) exhibit.href = event.exhibitUrl || "/exhibition";
 
