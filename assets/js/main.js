@@ -361,8 +361,8 @@ function renderCta(event) {
   if (footerEvent) {
     const date = $("[data-footer-date]", footerEvent);
     const place = $("[data-footer-place]", footerEvent);
-    if (date) date.textContent = event.dateText;
-    if (place) place.textContent = `${event.venue}, ${event.city}, ${event.country}`;
+        if (date) date.textContent = event.dateText;
+    if (place) place.textContent = [event.venue, event.area, event.city, event.country].filter(Boolean).join(", ");
   }
 }
 
