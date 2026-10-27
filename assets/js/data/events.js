@@ -13,7 +13,7 @@
 export const EVENTS = [
   {
     id: "abc-2026",
-    name: "African Brands Congress 2026",
+    name: "African Brand Leadership Merit Awards"
     edition: 11,
     theme: "The Future of Brands in the Era of Artificial Intelligence",
     tagline: "Learn // Network // Celebrate",
