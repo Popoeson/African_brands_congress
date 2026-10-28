@@ -289,3 +289,22 @@
 /* Magazine block without a cover image */
 .aw-mag.aw-mag--solo { grid-template-columns: 1fr; }
 .aw-mag__facts { margin: 0; padding-left: var(--s-5); display: grid; gap: var(--s-2); color: var(--slate); }
+
+/* Responsive fixes: long category names must never widen the page */
+.aw-form,
+.aw-fields,
+.aw-groups,
+.aw-process { grid-template-columns: minmax(0, 1fr); }
+.aw-field { min-width: 0; }
+.aw-field select { max-width: 100%; text-overflow: ellipsis; }
+.aw-group__head h3 { min-width: 0; }
+.aw-trigger > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+
+@media (min-width: 600px) {
+  .aw-fields,
+  .aw-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1100px) {
+  .aw-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
