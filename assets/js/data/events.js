@@ -65,7 +65,7 @@ export const EVENTS = [
       {
         // TODO: flyer titles this "Generative AI-Powered Consumer Insight". Client to confirm.
         title: "Generative AI in Content and Creative Work",
-        text: "Examining how generative tools are reshaping content creation, advertising and design workflows across the continent, and what this means for creative talent, originality and the protection of African cultural narratives.",
+        text: Examining how generative AI tools are reshaping content creation, advertising and design workflows across the continent, and what this means for creative talent, originality and the protection of African cultural narratives.",
         image: { src: "/assets/img/content.webp", alt: "Describe the image", width: 800, height: 450 },
       },
       {
@@ -79,7 +79,7 @@ export const EVENTS = [
         image: { src: "/assets/img/ethics.webp", alt: "Describe the image", width: 800, height: 450 },
       },
       {
-        // TODO: the supplied text is cut off after "effectively". Client to send the full sentence.
+        // TODO: the flyer text is cut off after "across teams and". Client to send the full sentence. Until then we stop at "effectively".
         title: "Building AI-Ready Brand Organisations",
         text: "Focusing on the internal shifts brands must make – talent, skills, culture and infrastructure – to adopt AI effectively.",
         image: { src: "/assets/img/brand-organization.webp", alt: "Describe the image", width: 800, height: 450 },
