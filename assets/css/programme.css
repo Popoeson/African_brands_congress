@@ -133,7 +133,7 @@
   background: var(--accent);
   border: var(--border);
   color: var(--on);
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font-head);
   font-weight: 700;
   font-size: 16px;
 }
