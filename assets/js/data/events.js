@@ -13,12 +13,12 @@
 export const EVENTS = [
   {
     id: "abc-2026",
-    name: "African Brand Leadership Merit Awards"
+    name: "African Brands Congress 2026",
     edition: 11,
     theme: "The Future of Brands in the Era of Artificial Intelligence",
     tagline: "Learn // Network // Celebrate",
 
-    // TODO: client to confirm 30 November 2026 (planning documents said 30 October)
+    // Confirmed: 30 November 2026 (earlier planning documents said 30 October)
     startsAt: "2026-11-30T10:00:00+01:00",
     endsAt: "2026-11-30T17:00:00+01:00",
     dateText: "Monday 30 November 2026",
@@ -52,37 +52,37 @@ export const EVENTS = [
     ],
 
     synopsis: [
-      "Artificial intelligence has moved from the back office into the very heart of brand strategy – shaping how consumers discover products, how narratives are personalized at scale, and how brands are built or lost in an instant. For African brands, this shift presents both an extraordinary opportunity and a pressing challenge: the opportunity to leapfrog legacy marketing models and compete globally on the strength of data, creativity and automation; and the challenge of ensuring that AI adoption does not erode the authenticity, cultural depth and human connection that have long been the signature of African brand storytelling.",
-      "This theme invites delegates to examine how brands across sectors – from FMCG and finance to fashion, media, agriculture and the public sector – can harness AI-driven tools for insight generation, content creation, customer engagement and operational efficiency, while safeguarding ethics, ownership of data, and the distinctly African identity that gives their brands meaning. It is a conversation about balance: technology in services of culture, automation in service of authenticity, and innovation in service of inclusive growth.",
+      "Artificial intelligence has moved from the back office into the very heart of brand strategy – shaping how consumers discover products, how narratives are personalised at scale, and how brands are built or lost in an instant. For African brands, this shift presents both an extraordinary opportunity and a pressing challenge: the opportunity to leapfrog legacy marketing models and compete globally on the strength of data, creativity and automation; and the challenge of ensuring that AI adoption does not erode the authenticity, cultural depth and human connection that have long been the signature of African brand storytelling.",
+      "This theme invites delegates to examine how brands across sectors – from FMCG and finance to fashion, media, agriculture and the public sector – can harness AI-driven tools for insight generation, content creation, customer engagement and operational efficiency, while safeguarding ethics, ownership of data, and the distinctly African identity that gives their brands meaning. It is a conversation about balance: technology in service of culture, automation in service of authenticity, and innovation in service of inclusive growth.",
     ],
 
     subThemes: [
       {
         title: "AI-Powered Consumer Insight",
         text: "Exploring how predictive analytics, data science and machine learning are transforming the way African brands understand consumer behaviour, anticipate demand, and personalise offerings at scale, while ensuring responsible use of consumer data.",
-        image: { src: "/assets/img/01-consumer-insight.webp", alt: "Consumer insight", width: 800, height: 450 },
+        image: { src: "/assets/img/01-consumer-insight.webp", alt: "", width: 800, height: 450 },
       },
       {
         // TODO: flyer titles this "Generative AI-Powered Consumer Insight". Client to confirm.
         title: "Generative AI in Content and Creative Work",
-        text: Examining how generative AI tools are reshaping content creation, advertising and design workflows across the continent, and what this means for creative talent, originality and the protection of African cultural narratives.",
-        image: { src: "/assets/img/content.webp", alt: "Describe the image", width: 800, height: 450 },
+        text: "Examining how generative AI tools are reshaping content creation, advertising and design workflows across the continent, and what this means for creative talent, originality and the protection of African cultural narratives.",
+        image: { src: "/assets/img/content.webp", alt: "", width: 800, height: 450 },
       },
       {
         title: "Automation, Customer Experience and Digital Trust",
         text: "Looking at how chatbots, virtual assistants and automated service platforms are redefining customer engagement, and how brands can deploy them without losing the human warmth and trust central to African consumer relationships.",
-        image: { src: "/assets/img/digital-trust.webp", alt: "Describe the image", width: 800, height: 450 },
+        image: { src: "/assets/img/digital-trust.webp", alt: "", width: 800, height: 450 },
       },
       {
         title: "AI, Ethics and Brand Governance",
         text: "Interrogating the ethical, legal and regulatory questions raised by AI-driven marketing – including data privacy, algorithmic bias, misinformation and intellectual property – and what responsible governance looks like for African brands.",
-        image: { src: "/assets/img/ethics.webp", alt: "Describe the image", width: 800, height: 450 },
+        image: { src: "/assets/img/ethics.webp", alt: "", width: 800, height: 450 },
       },
       {
         // TODO: the flyer text is cut off after "across teams and". Client to send the full sentence. Until then we stop at "effectively".
         title: "Building AI-Ready Brand Organisations",
         text: "Focusing on the internal shifts brands must make – talent, skills, culture and infrastructure – to adopt AI effectively.",
-        image: { src: "/assets/img/brand-organization.webp", alt: "Describe the image", width: 800, height: 450 },
+        image: { src: "/assets/img/brand-organization.webp", alt: "", width: 800, height: 450 },
       },
     ],
 
@@ -129,21 +129,21 @@ export const EVENTS = [
       "A foundation of insight and relationships carried forward into subsequent editions of the African Brands Congress, reinforcing its role as the continent's leading brand leadership platform.",
     ],
 
-        // logo: replace null with e.g. { src: "/assets/img/featuring/ceos-forum.webp", width: 400, height: 300 }
+    // logo: replace null with e.g. { src: "/assets/img/featuring/ceos-forum.webp", width: 400, height: 300 }
     // Until a logo is set, the tile shows the name as text.
-        featuring: [
+    featuring: [
       { name: "ABC Brand Showcase & Exhibition", logo: { src: "/assets/img/brand-showcase.webp", width: 400, height: 300 } },
       { name: "Africa Brands CEOs Forum", logo: { src: "/assets/img/ceo+-forum.webp", width: 400, height: 300 } },
       { name: "Africa Sustainable Brands Summit", logo: { src: "/assets/img/brand-summit.webp", width: 400, height: 300 } },
       { name: "African Brand Innovators Forum", logo: { src: "/assets/img/innovation-forum.webp", width: 400, height: 300 } },
-      { name: "Africa Most Admired Brands Awards", logo: { src: "/assets/img/brands-award.webp", width: 400, height: 300 } },
+      { name: "African Brand Leadership Merit Awards", logo: { src: "/assets/img/brands-award.webp", width: 400, height: 300 } },
       { name: "Africa Brands TV Online (special featuring)", logo: { src: "/assets/img/brand-tv.webp", width: 400, height: 300 } },
     ],
 
     poweredBy: "The African Brands",
     supportedBy: ["The African Brands Academy"], // TODO: IBMA full name to be confirmed
 
-        // From the flyer: "plenary sessions, masterclasses, panel discussions, an exhibition floor and structured networking"
+    // From the flyer: "plenary sessions, masterclasses, panel discussions, an exhibition floor and structured networking"
     formats: ["Plenary sessions", "Masterclasses", "Panel discussions", "Exhibition floor", "Structured networking"],
 
     // Not yet supplied. While empty, the Programme page shows "To be announced".
