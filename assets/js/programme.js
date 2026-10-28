@@ -75,8 +75,7 @@ function renderBand(event) {
   const meta = $("[data-prog-meta]");
   if (meta) {
     const when = event.timeText ? `${event.dateText}, ${event.timeText}` : event.dateText;
-    const where = [event.hall, event.venue, event.city].filter(Boolean).join(", ");
-    meta.textContent = `${when} | ${where}`;
+    const where = [event.hall, event.venue, event.area, event.city].filter(Boolean).join(", ");
   }
 }
 
