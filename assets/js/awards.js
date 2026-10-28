@@ -113,7 +113,14 @@ function renderCategories() {
       panel.setAttribute("role", "region");
       panel.setAttribute("aria-labelledby", btnId);
       panel.hidden = true;
-      panel.append(el("p", null, cat.criteria || "Criteria to be announced."));
+            const criteria = Array.isArray(cat.criteria) ? cat.criteria : cat.criteria ? [cat.criteria] : [];
+      if (criteria.length) {
+        const ul = el("ul", "aw-criteria");
+        criteria.forEach((c) => ul.append(el("li", null, c)));
+        panel.append(el("p", "aw-criteria-label", "Criteria"), ul);
+      } else {
+        panel.append(el("p", null, "Criteria to be announced."));
+      }
 
       li.append(h4, panel);
       list.append(li);
