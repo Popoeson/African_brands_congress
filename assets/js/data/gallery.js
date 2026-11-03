@@ -30,8 +30,8 @@ function photos(year, count, overrides = {}) {
 }
 
 export const GALLERY = [
-  { id: "abc-2024", year: 2024, name: "ABC 2024", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2024, 5) },
-  { id: "abc-2023", year: 2023, name: "ABC 2023", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2023, 0) },
+  { id: "abc-2024", year: 2024, name: "ABC 2024", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2024, 10) },
+  { id: "abc-2023", year: 2023, name: "ABC 2023", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2023, 30) },
   { id: "abc-2022", year: 2022, name: "ABC 2022", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2022, 0) },
-  { id: "abc-2021", year: 2021, name: "ABC 2021", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2021, 0) },
+  { id: "abc-2021", year: 2021, name: "ABC 2021", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2021, 30) },
 ];
