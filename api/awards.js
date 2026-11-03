@@ -11,6 +11,6 @@ export default createHandler({
     { key: "phone", label: "Phone number", type: "phone", required: false },
     { key: "company", label: "Company", type: "text", required: true },
     { key: "category", label: "Category of interest", type: "text", required: true },
-    { key: "message", label: "Message", type: "text", required: false },
+    { key: "message", label: "Message", type: "textarea", required: false },
   ],
 });
