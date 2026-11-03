@@ -1,365 +1,45 @@
+/**
+ * ABC: gallery data (past editions).
+ * This is the ONLY file to edit to change the Gallery page.
+ *
+ * - The page sorts by year, newest first.
+ * - Anything unconfirmed stays null or 0. The page shows "To be announced" or "to be added". Do not guess.
+ * - Images live in /assets/img/gallery/<year>/ . Compress first: WebP, 800x600, ideally under 100 KB.
+ *
+ * Photos are numbered files: /assets/img/gallery/<year>/gal1.webp ... galN.webp (lowercase, no gaps).
+ * Set the exact count in photos(year, count). A count of 0 shows "Photos to be added."
+ * Optional per-photo text, for example: photos(2024, 30, { 3: { alt: "Describe the photo", caption: "Opening session" } })
+ *
+ * flyer:   { src: "/assets/img/gallery/2024/flyer.webp", alt: "Describe the flyer", width: 900, height: 675 } or null
+ * edition: number (for example 9) or null
+ * dateText / venue / summary: text or null
+ * Do not publish identifiable guests or winners without client confirmation.
+ */
 
-/* Gallery page. Builds on base.css tokens and classes. Mobile first. */
+  // TEMPLATE (a comment, so it stays hidden). To use it: copy the line, remove the "//", change id, year and name, and replace every REPLACE value.
+  // { id: "abc-2025", year: 2025, name: "ABC 2025", edition: 99, theme: "REPLACE: exact theme wording", dateText: "REPLACE: weekday, day month year", venue: "REPLACE: venue, city", summary: "REPLACE: one or two sentences about this edition, or set to null", flyer: { src: "/assets/img/gallery/2025/flyer.webp", alt: "REPLACE: one-line description of the flyer", width: 900, height: 675 }, photos: photos(2025, 30, { 1: { alt: "REPLACE: describe photo 1", caption: "REPLACE: optional caption" } }) },
 
-.gal-band-lead {
-  max-width: 44ch;
-  margin-top: var(--s-4);
+function photos(year, count, overrides = {}) {
+  return Array.from({ length: count }, (_, i) => {
+    const n = i + 1;
+    return {
+      src: `/assets/img/gallery/${year}/gal${n}.webp`,
+      alt: `Photo ${n} of ${count} from ABC ${year}`,
+      width: 800,
+      height: 600,
+      ...overrides[n],
+    };
+  });
 }
 
-/* =========================================
-   GALLERY CARDS
-========================================= */
+export const GALLERY = [
 
-/* Cards: as many columns as fit */
-.gal-grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: var(--s-6);
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-}
+  { id: "abc-2024", year: 2024, name: "ABC 2024", edition: "9", theme: "3R: Rejuvenate, Revitalization, Reinvention", dateText: "Dec 2024", venue: "Oriental Hotel" , summary: null, flyer: { src: "/assets/img/gallery/2024/flyer.webp", alt: "Flyer for the 9th Edition", width: 900, height: 675 }, photos: photos(2024, 10) },
 
-.gal-card {
-  padding: 0;
-  overflow: hidden;
-  display: flex;
-}
+  { id: "abc-2023", year: 2023, name: "ABC 2023", edition: 8, theme: null, "Sept 2023" : null, venue: "The Civic Center" , summary: null, flyer: { src: "/assets/img/gallery/2023/flyer.webp", alt: "Flyer for the 6th edition", width: 900, height: 675 }, photos: photos(2023, 30) },
 
-.gal-card__btn {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 0;
-  font: inherit;
-  text-align: left;
-  color: inherit;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-}
+  { id: "abc-2022", year: 2022, name: "ABC 2022", edition: "7", theme: null, dateText: "Sept 2024", venue: "Oriental Hotel", summary: null, flyer: { src: "/assets/img/gallery/2022/flyer.webp", alt: "Flyer for the 7th edition", width: 900, height: 675 }, photos: photos(2022, 0) },
 
-.gal-card__btn:focus-visible {
-  outline: 3px solid var(--ink);
-  outline-offset: -3px;
-  box-shadow: inset 0 0 0 6px var(--yellow);
-}
+  { id: "abc-2021", year: 2021, name: "ABC 2021", edition: "6", theme: "Digital Technology, AI And IoT" , dateText: "Sept 2021" , venue: "Oriental Hotel", summary: null, flyer: { src: "/assets/img/gallery/2021/flyer.webp", alt: "Flyer for 6th edition", width: 900, height: 675 }, photos: photos(2021, 30) },
 
-/* Thumbnail container */
-.gal-card__media {
-  position: relative;
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: var(--sand);
-  border-bottom: var(--border);
-}
-
-/* Make thumbnail fill the entire container */
-.gal-card__media img,
-.gal-card__media .ph {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.gal-card__media img {
-  object-fit: cover;
-  object-position: center;
-}
-
-/* Edition badge */
-.gal-badge {
-  position: absolute;
-  z-index: 2;
-  top: 12px;
-  left: 12px;
-  padding: 4px 14px;
-  font: 700 1rem var(--font-head);
-  color: var(--ink);
-  background: var(--yellow);
-  border: var(--border);
-  border-radius: 999px;
-}
-
-/* Card information */
-.gal-card__body {
-  display: grid;
-  gap: var(--s-1);
-  align-content: start;
-  padding: var(--s-4);
-}
-
-.gal-label {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--green-deep);
-}
-
-.gal-card__theme {
-  font: 700 1.125rem/1.3 var(--font-head);
-  color: var(--ink);
-  overflow-wrap: anywhere;
-}
-
-.gal-card__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-2);
-  margin-top: var(--s-2);
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.gal-card__cta .icon {
-  width: 20px;
-  height: 20px;
-}
-
-/* Card hover effect */
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .gal-card {
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .gal-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--ink);
-  }
-}
-
-
-/* =========================================
-   GALLERY DETAILS DIALOG
-========================================= */
-
-/* Dialog container */
-.gal-dialog {
-  width: min(960px, calc(100% - var(--s-4)));
-  max-width: none;
-  padding: 0;
-  color: var(--ink);
-  background: transparent;
-  border: 0;
-  overflow: visible;
-}
-
-.gal-dialog::backdrop {
-  background: rgba(17, 17, 17, 0.65);
-}
-
-/* Dialog panel */
-.gal-dialog__panel {
-  max-height: calc(100vh - 16px);
-  max-height: calc(100dvh - 16px);
-  overflow-y: auto;
-  background: #fff;
-  border: var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-/* Dialog header */
-.gal-dialog__bar {
-  position: sticky;
-  top: 0;
-  z-index: 3;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--s-4);
-  padding: var(--s-3) var(--s-4);
-  background: #fff;
-  border-bottom: var(--border);
-}
-
-.gal-dialog__bar h2 {
-  margin: 0;
-  font-size: 1.25rem;
-}
-
-/* Dialog content */
-.gal-dialog__body {
-  display: grid;
-  gap: var(--s-6);
-  padding: var(--s-4);
-}
-
-/* =========================================
-   FLYER AND EVENT INFORMATION
-========================================= */
-
-.gal-dialog__body h3 {
-  margin: 0 0 var(--s-3);
-}
-
-/* Flyer and information layout */
-.gal-dialog__top {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: start;
-}
-
-/* Flyer */
-.gal-flyer {
-  width: 100%;
-  max-width: 340px;
-  margin: 0 auto;
-}
-
-.gal-flyer img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: var(--border);
-  border-radius: var(--radius);
-}
-
-.gal-flyer .ph {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius);
-}
-
-/* Event information */
-.gal-info {
-  display: grid;
-  gap: var(--s-3);
-  align-content: start;
-}
-
-.gal-info p {
-  margin: 0;
-}
-
-.gal-theme {
-  font: 700 1.25rem/1.3 var(--font-head);
-  overflow-wrap: anywhere;
-}
-
-/* Event facts */
-.gal-facts {
-  display: grid;
-  gap: var(--s-3);
-  margin: 0;
-}
-
-.gal-facts dt {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--green-deep);
-}
-
-.gal-facts dd {
-  margin: 0;
-}
-
-
-/* =========================================
-   EMPTY STATES
-========================================= */
-
-.gal-empty {
-  margin: 0;
-  padding: var(--s-4);
-  font-weight: 600;
-  color: var(--slate);
-  background: var(--offwhite);
-  border: var(--border);
-  border-radius: var(--radius);
-}
-
-
-/* =========================================
-   EVENT PHOTOS
-========================================= */
-
-/* Photos in a consistent 4:3 ratio */
-.gal-photos {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: var(--s-4);
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.gal-photo figure {
-  margin: 0;
-}
-
-.gal-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border: var(--border);
-  border-radius: var(--radius);
-}
-
-.gal-photo figcaption {
-  margin-top: var(--s-2);
-  font-size: 14px;
-  color: var(--slate);
-}
-
-
-/* =========================================
-   RESPONSIVE BREAKPOINTS
-========================================= */
-
-/* Tablets */
-@media (min-width: 600px) {
-  .gal-photos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* Desktop */
-@media (min-width: 768px) {
-
-  .gal-dialog__bar {
-    padding: var(--s-4) var(--s-6);
-  }
-
-  .gal-dialog__body {
-    padding: var(--s-6);
-  }
-
-  /* Smaller flyer with more room for information */
-  .gal-dialog__top {
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
-    gap: 32px;
-    align-items: start;
-  }
-
-  .gal-flyer {
-    max-width: 360px;
-  }
-}
-
-/* Large screens */
-@media (min-width: 1000px) {
-  .gal-photos {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-/* Small screens */
-@media (max-width: 767px) {
-
-  .gal-dialog__top {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
-  }
-
-  .gal-flyer {
-    max-width: 340px;
-  }
-
-}
+];
