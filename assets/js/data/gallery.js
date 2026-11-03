@@ -36,10 +36,10 @@ export const GALLERY = [
 
   { id: "abc-2024", year: 2024, name: "ABC 2024", edition: "9", theme: "3R: Rejuvenate, Revitalization, Reinvention", dateText: "Dec 2024", venue: "Oriental Hotel" , summary: null, flyer: { src: "/assets/img/gallery/2024/flyer.webp", alt: "Flyer for the 9th Edition", width: 900, height: 675 }, photos: photos(2024, 10) },
 
-  { id: "abc-2023", year: 2023, name: "ABC 2023", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2023, 30) },
+  { id: "abc-2023", year: 2023, name: "ABC 2023", edition: 8, theme: null, "Sept 2023" : null, venue: "The Civic Center" , summary: null, flyer: { src: "/assets/img/gallery/2023/flyer.webp", alt: "REPLACE: one-line description of the flyer", width: 900, height: 675 }, photos: photos(2023, 30) },
 
-  { id: "abc-2022", year: 2022, name: "ABC 2022", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2022, 0) },
+  { id: "abc-2022", year: 2022, name: "ABC 2022", edition: "7", theme: null, dateText: "Sept 2024", venue: "Oriental Hotel", summary: null, flyer: { src: "/assets/img/gallery/2022/flyer.webp", alt: "REPLACE: one-line description of the flyer", width: 900, height: 675 }, photos: photos(2022, 0) },
 
-  { id: "abc-2021", year: 2021, name: "ABC 2021", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2021, 30) },
+  { id: "abc-2021", year: 2021, name: "ABC 2021", edition: "6", theme: "Digital Technology, AI And IoT" , dateText: "Sept 2021" , venue: "Oriental Hotel", summary: null, flyer: { src: "/assets/img/gallery/2021/flyer.webp", alt: "Flyer for 6th edition", width: 900, height: 675 }, photos: photos(2021, 30) },
 
 ];
