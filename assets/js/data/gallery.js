@@ -34,7 +34,7 @@ function photos(year, count, overrides = {}) {
 
 export const GALLERY = [
 
-  { id: "abc-2024", year: 2024, name: "ABC 2024", edition: "9", theme: "3R: Rejuvenate, Revitalization, Reinvention", dateText: "Dec 2024", venue: "Oriental Hotel" , summary: null, flyer: { src: "/assets/img/gallery/2024/flyer.webp", alt: "Flyer for the 9th Edition", width: 1200, height: 675 }, photos: photos(2024, 10) },
+  { id: "abc-2024", year: 2024, name: "ABC 2024", edition: "9", theme: "3R: Rejuvenate, Revitalization, Reinvention", dateText: "Dec 2024", venue: "Oriental Hotel" , summary: null, flyer: { src: "/assets/img/gallery/2024/flyer.webp", alt: "Flyer for the 9th Edition", width: 900, height: 675 }, photos: photos(2024, 10) },
 
   { id: "abc-2023", year: 2023, name: "ABC 2023", edition: 8, theme: null, "Sept 2023" : null, venue: "The Civic Center" , summary: null, flyer: { src: "/assets/img/gallery/2023/flyer.webp", alt: "Flyer for the 6th edition", width: 900, height: 675 }, photos: photos(2023, 30) },
 
