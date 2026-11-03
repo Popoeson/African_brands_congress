@@ -16,6 +16,9 @@
  * Do not publish identifiable guests or winners without client confirmation.
  */
 
+  // TEMPLATE (a comment, so it stays hidden). To use it: copy the line, remove the "//", change id, year and name, and replace every REPLACE value.
+  // { id: "abc-2025", year: 2025, name: "ABC 2025", edition: 99, theme: "REPLACE: exact theme wording", dateText: "REPLACE: weekday, day month year", venue: "REPLACE: venue, city", summary: "REPLACE: one or two sentences about this edition, or set to null", flyer: { src: "/assets/img/gallery/2025/flyer.webp", alt: "REPLACE: one-line description of the flyer", width: 900, height: 675 }, photos: photos(2025, 30, { 1: { alt: "REPLACE: describe photo 1", caption: "REPLACE: optional caption" } }) },
+
 function photos(year, count, overrides = {}) {
   return Array.from({ length: count }, (_, i) => {
     const n = i + 1;
@@ -30,8 +33,13 @@ function photos(year, count, overrides = {}) {
 }
 
 export const GALLERY = [
-  { id: "abc-2024", year: 2024, name: "ABC 2024", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2024, 10) },
+
+  { id: "abc-2024", year: 2024, name: "ABC 2024", edition: "9", theme: "3R: Rejuvenate, Revitalization, Reinvention", dateText: "Dec 2024", venue: "Oriental Hotel" , summary: null, flyer: { src: "/assets/img/gallery/2024/flyer.webp", alt: "Flyer for the 9th Edition", width: 900, height: 675 }, photos: photos(2024, 10) },
+
   { id: "abc-2023", year: 2023, name: "ABC 2023", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2023, 30) },
+
   { id: "abc-2022", year: 2022, name: "ABC 2022", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2022, 0) },
+
   { id: "abc-2021", year: 2021, name: "ABC 2021", edition: null, theme: null, dateText: null, venue: null, summary: null, flyer: null, photos: photos(2021, 30) },
+
 ];
