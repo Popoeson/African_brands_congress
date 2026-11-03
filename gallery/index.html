@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | African Brands Congress</title>
+  <meta name="description" content="Flyers, themes and photos from past editions of the African Brands Congress.">
+  <link rel="canonical" href="https://africanbrandscongress.org/gallery">
+  <meta name="theme-color" content="#00693B">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="African Brands Congress">
+  <meta property="og:title" content="Gallery | African Brands Congress">
+  <meta property="og:description" content="Flyers, themes and photos from past editions of the African Brands Congress.">
+  <meta property="og:url" content="https://africanbrandscongress.org/gallery">
+  <meta property="og:image" content="https://africanbrandscongress.org/assets/img/ABC-og.webp">
+  <meta property="og:image:alt" content="African Brands Congress">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://africanbrandscongress.org/assets/img/ABC-og.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/gallery.css">
+  <link rel="modulepreload" href="/assets/js/main.js">
+  <link rel="modulepreload" href="/assets/js/gallery.js">
+  <link rel="modulepreload" href="/assets/js/data/gallery.js">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header: copy this block to every page -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="/" aria-label="African Brands Congress, home">
+        <img src="/assets/img/abc-logo1.webp" alt="" width="300" height="182">
+      </a>
+
+      <nav id="site-nav" class="nav" aria-label="Main">
+        <ul class="nav__list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/programme">Programmes and Speakers</a></li>
+          <li><a href="/exhibition">Exhibition and Sponsors</a></li>
+          <li><a href="/awards">Awards</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/news-contact">News and Contact</a></li>
+          <li class="nav__mobile-only"><a href="/register" data-register-cta-short>Register</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--primary btn--sm" href="/register" data-register-cta-short>Register</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" data-menu-toggle>
+        <svg class="icon icon--open" aria-hidden="true"><use href="/assets/img/icons.svg#menu"/></svg>
+        <svg class="icon icon--close" aria-hidden="true"><use href="/assets/img/icons.svg#x"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Title band -->
+    <section class="title-band has-bunting" aria-labelledby="gal-title">
+      <div class="container">
+        <h1 id="gal-title">Gallery</h1>
+        <p class="lead gal-band-lead">A look back at past editions of the African Brands Congress.</p>
+      </div>
+    </section>
+
+    <!-- Past editions: cards are rendered by /assets/js/gallery.js from /assets/js/data/gallery.js -->
+    <section class="section" aria-labelledby="gal-editions-title">
+      <div class="container">
+        <div class="section__head">
+          <span class="marker" aria-hidden="true"></span>
+          <h2 id="gal-editions-title">Past editions</h2>
+          <p class="lead">Select an edition to see its flyer, theme and photos.</p>
+        </div>
+        <ul class="gal-grid" data-gallery></ul>
+        <noscript><p>Turn on JavaScript to see the past editions, or contact the team.</p></noscript>
+      </div>
+    </section>
+
+    <!-- Final call to action -->
+    <section class="cta" aria-labelledby="final-title">
+      <div class="container">
+        <h2 id="final-title" data-cta-title>Join us at the African Brands Congress</h2>
+        <p class="lead" data-cta-text hidden></p>
+        <a class="btn btn--primary" href="/register" data-register-cta>
+          <span data-register-label>Register to attend</span>
+          <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- One shared dialog for all editions. Filled by gallery.js when a card is opened. -->
+    <dialog class="gal-dialog" data-gal-dialog aria-labelledby="gal-dialog-title">
+      <div class="gal-dialog__panel">
+        <div class="gal-dialog__bar">
+          <h2 id="gal-dialog-title" data-gal-title>Past edition</h2>
+          <button class="btn btn--tertiary btn--sm" type="button" data-gal-close>Close</button>
+        </div>
+        <div class="gal-dialog__body">
+          <div class="gal-dialog__top">
+            <figure class="gal-flyer" data-gal-flyer></figure>
+            <div class="gal-info">
+              <p class="gal-label">Theme</p>
+              <p class="gal-theme" data-gal-theme></p>
+              <dl class="gal-facts" data-gal-facts></dl>
+              <p data-gal-summary hidden></p>
+              <p class="gal-empty" data-gal-note hidden>More details about this edition to be announced.</p>
+            </div>
+          </div>
+          <div>
+            <h3>Photos</h3>
+            <ul class="gal-photos" data-gal-photos></ul>
+            <p class="gal-empty" data-gal-nophotos hidden>Photos to be added.</p>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+  </main>
+
+  <!-- Footer: copy this block to every page -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="/" aria-label="African Brands Congress, home">
+            <img src="/assets/img/ABC-logo2.webp" alt="" width="300" height="182">
+          </a>
+          <p>The annual pan-African gathering for brand owners, marketers, executives, regulators and investors.</p>
+          <p class="footer__tagline">Learn // Network // Celebrate</p>
+          <a class="btn btn--primary" href="/register" data-register-cta><span data-register-label>Register to attend</span></a>
+        </div>
+
+        <nav class="footer__links" aria-label="Quick links">
+          <h2>Quick links</h2>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/programme">Programmes and Speakers</a></li>
+            <li><a href="/exhibition">Exhibition and Sponsors</a></li>
+            <li><a href="/awards">Awards</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/news-contact">News and Contact</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/privacy">Privacy policy</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2>Contact</h2>
+          <ul class="footer__contact">
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#mail"/></svg>
+              <div><span class="footer__label">Email</span><span data-site="email">Email address to be confirmed</span></div>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#phone"/></svg>
+              <div><span class="footer__label">Phone</span><span data-site="phone">Phone number to be confirmed</span></div>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#map-pin"/></svg>
+              <div><span class="footer__label">Office</span><span data-site="address">Office address to be confirmed</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div data-social-group hidden>
+            <h2>Follow ABC</h2>
+            <div class="social-list">
+              <a class="social" href="#" data-social="linkedin" aria-label="ABC on LinkedIn" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#linkedin"/></svg></a>
+              <a class="social" href="#" data-social="twitter" aria-label="ABC on Twitter" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#twitter"/></svg></a>
+              <a class="social" href="#" data-social="instagram" aria-label="ABC on Instagram" hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#instagram"/></svg></a>
+            </div>
+          </div>
+          <div data-footer-event style="margin-top:var(--s-6)">
+            <h2>Next event</h2>
+            <p data-footer-date></p>
+            <p data-footer-place></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>Privacy notice: we use the details you share only to manage registrations, enquiries and Congress updates. <span data-site="privacy">Full privacy policy to be announced.</span></p>
+        <p>&copy; <span data-year>2026</span> African Brands Congress</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+  <script type="module" src="/assets/js/gallery.js"></script>
+</body>
+</html>
