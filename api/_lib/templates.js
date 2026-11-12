@@ -29,7 +29,7 @@ export function notification({ title, fields, values, when }) {
 /** Confirmation sent to the registrant. Event details come from environment variables. */
 export function registrationConfirmation({ name }) {
   const event = process.env.EVENT_NAME || "African Brands Congress 2026";
-  const date = process.env.EVENT_DATE_TEXT || "Friday 30 October 2026";
+  const date = process.env.EVENT_DATE_TEXT || "Monday 30 November 2026";
   const venue = process.env.EVENT_VENUE || "Lagos Oriental Hotel, Lagos, Nigeria";
 
   const text = [
