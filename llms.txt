@@ -1,0 +1,15 @@
+# African Brands Congress (ABC)
+
+> African Brands Congress is a pan-African platform that brings together brand owners, marketers, executives, regulators and investors to learn, network and celebrate African brand excellence. Tagline: Learn // Network // Celebrate.
+
+ABC runs an annual Congress, the African Brand Leadership Merit Awards, and a Brand Showcase and Exhibition. The latest and upcoming editions, with dates, venue and theme, are always on the home page.
+
+## Pages
+- [Home](https://africanbrandscongress.org/): current or next edition, countdown, registration
+- [About](https://africanbrandscongress.org/about): who ABC is, mission, objectives, organiser
+- [Programmes and Speakers](https://africanbrandscongress.org/programme): themes, sessions and speakers
+- [Exhibition and Sponsors](https://africanbrandscongress.org/exhibition): Brand Showcase and Exhibition, packages on enquiry
+- [Awards](https://africanbrandscongress.org/awards): African Brand Leadership Merit Awards, 35 categories
+- [Gallery](https://africanbrandscongress.org/gallery): past editions
+- [Register](https://africanbrandscongress.org/register): attendee registration
+- [News and Contact](https://africanbrandscongress.org/news-contact): announcements and contact form
